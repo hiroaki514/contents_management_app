@@ -1,1 +1,15 @@
-ユーザ投稿画面
+ユーザ追加画面
+<%= form_with(model: @user) do |f| %>
+  <%= f.label 'ユーザ名' %>
+  <%= f.text_field :name %><br>
+  <%= f.label 'メールアドレス' %>
+  <%= f.text_field :email %><br>
+  <%= f.label '所属' %>
+  <%= f.text_field :belonging %><br>
+  <%= f.label '権限' %>
+  <%= f.text_field :role %><br>
+
+  <div>
+    <%= f.submit '送信' %>
+  </div>
+<% end %>
