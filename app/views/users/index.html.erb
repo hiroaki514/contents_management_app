@@ -1,7 +1,9 @@
 <h2>ユーザ一覧</h2>
 
 <% @users.each do |user| %>
-  <%= link_to user.name, user_path(user) %>
+  <div>
+    <%= link_to user.name, user_path(user) %>
+  </div>
 <% end %>
 
 <div>
