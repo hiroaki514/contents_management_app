@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        belonging: 役職
+        role: 権限
+    errors:
+      models:
+      format: "%{message}"
+      messages: &errors_messages
+        inclusion: "が正しくありません。"
+        exclusion: "は正しくありません。"
+        invalid: "が正しくありません。"
+        confirmation: "が一致しません。"
+        accepted: "をチェックしてください。"
+        empty: "を入力してください。"
+        blank: "を入力してください。"
+        required: "を入力してください。"
+        too_long: "は%{count}文字以内で入力してください。"
+        too_short: "は%{count}文字以上で入力してください。"
+
