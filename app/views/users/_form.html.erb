@@ -1,4 +1,13 @@
 <%= form_with(model: user) do |f| %>
+  <% if user.errors %>
+    <div class = "alert">
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.label 'ユーザ名' %>
   <%= f.text_field :name %><br>
   <%= f.label "メールアドレス" %>
