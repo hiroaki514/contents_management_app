@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, only: %i[show edit update destroy]
 
   def index
     @users = User.all
@@ -23,6 +23,11 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    @user.destroy
     redirect_to root_path
   end
 
