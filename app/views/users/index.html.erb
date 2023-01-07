@@ -1,12 +1,3 @@
-<nav>
-  <% if user_signed_in? %>
-    <%= "こんにちは#{current_user.email}さん"  %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'サインアップ', new_user_registration_path %>
-    <%= link_to 'ログイン', new_user_session_path %>
-  <% end %>
-</nav>
 <h2>ユーザ一覧</h2>
 
 <% @users.each do |user| %>
