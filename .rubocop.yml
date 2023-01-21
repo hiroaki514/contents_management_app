@@ -5,7 +5,6 @@ require:
 AllCops:
   NewCops: enable
   Exclude:
-    - 
     - 'db/migrate/*_devise_*.rb'
 
 Style/AsciiComments:
