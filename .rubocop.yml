@@ -2,5 +2,17 @@ require:
   - rubocop-performance
   - rubocop-rails
 
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/migrate/*_devise_*.rb'
+
 Style/AsciiComments:
   Enabled: false
+
+Layout/EndOfLine:
+  Enabled: False
+
+Style/Documentation:
+  Enabled: false
+
