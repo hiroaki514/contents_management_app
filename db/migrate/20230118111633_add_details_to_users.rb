@@ -2,8 +2,10 @@
 
 class AddDetailsToUsers < ActiveRecord::Migration[7.0]
   def change
-    add_column :users, :failed_attempts, :integer, default: 0, null: false, after: :remember_created_at
-    add_column :users, :unlock_token, :string, after: :failed_attempts
-    add_column :users, :locked_at, :datetime, after: :unlock_token
+    change_table :users, bulk: true do |t|
+      t.integer :failed_attempts, default: 0, null: false, after: :remember_created_at
+      t.string :unlock_token, after: :failed_attempts
+      t.datetime :locked_at, after: :unlock_token
+    end
   end
 end
