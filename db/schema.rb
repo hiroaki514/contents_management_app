@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 20_230_118_111_633) do
     t.datetime 'remember_created_at'
     t.integer 'failed_attempts', default: 0, null: false
     t.string 'unlock_token'
-    t.datetime 'locked_at'
+    t.datetime 'locked_at', precision: nil
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['email'], name: 'index_users_on_email', unique: true
