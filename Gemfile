@@ -26,6 +26,7 @@ gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.1.3'
 gem 'devise'
 gem 'devise-i18n'
+gem 'enum_help'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'mysql2', '~> 0.5'
