@@ -16,3 +16,7 @@ Layout/EndOfLine:
 Style/Documentation:
   Enabled: false
 
+Rails/NotNullColumn:
+  Enabled: false
+  Include:
+    - db/migrate/*.rb
