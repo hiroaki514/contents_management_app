@@ -6,6 +6,9 @@ ja:
         email: メールアドレス
         belonging: 役職
         role: 権限
+        master: マスター
+        admin: 管理者
+        general: 一般
     errors:
       models:
       format: "%{message}"
@@ -20,4 +23,10 @@ ja:
         required: "を入力してください。"
         too_long: "は%{count}文字以内で入力してください。"
         too_short: "は%{count}文字以上で入力してください。"
+  enums:
+    user:
+      role:
+        master: マスター
+        admin: 管理者
+        general: 一般
 

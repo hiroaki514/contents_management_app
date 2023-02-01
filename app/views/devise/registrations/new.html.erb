@@ -26,6 +26,17 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <p>権限</p>
+    <%= f.label :master %>
+    <%= f.radio_button :role, :master %>
+    <%= f.label :admin %>
+    <%= f.radio_button :role, :admin %>
+    <%= f.label :general %>
+    <%= f.radio_button :role, :general %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
