@@ -1,7 +1,12 @@
-<h1>ログインアプリ</h1>
+<h1>Content Management App</h1>
 <% if user_signed_in? %>
-  <h4> メールアドレス： <%= current_user.email %> </h4>
-  <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <div>
+    ユーザ名： <%= current_user.name %> <br />
+    メールアドレス： <%= current_user.email %>
+  </div>
+  <div>
+    <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+  </div>
 <% else %>
   <h2> 現在ログインしていません </h2>
   <%= link_to "ログイン", new_user_session_path, class: 'post' %>
