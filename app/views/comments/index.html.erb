@@ -4,6 +4,11 @@
     ユーザ名： <%= current_user.name %> <br />
     メールアドレス： <%= current_user.email %>
   </div>
+  <% if @user == user.admin? %>
+    <div>
+      管理者
+    </div>
+  <% end %>
   <div>
     <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
   </div>
