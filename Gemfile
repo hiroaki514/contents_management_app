@@ -7,10 +7,10 @@ ruby '3.1.2'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 6.0.0'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
-  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
