@@ -4,9 +4,17 @@
     ユーザ名： <%= current_user.name %> <br />
     メールアドレス： <%= current_user.email %>
   </div>
-  <% if @user == user.admin? %>
+  <% if current_user.master? %>
+    <div>
+      マスター
+    </div>
+  <% elsif current_user.admin? %>
     <div>
       管理者
+    </div>
+  <% elsif current_user.general? %>
+    <div>
+      一般
     </div>
   <% end %>
   <div>
