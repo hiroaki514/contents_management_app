@@ -19,6 +19,7 @@ module App
       g.assets false
       g.skip_routes false
       g.test_framework false
+      g.helper false
     end
 
     # Configuration for the application, engines, and railties goes here.

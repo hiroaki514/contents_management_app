@@ -4,6 +4,22 @@
     ユーザ名： <%= current_user.name %> <br />
     メールアドレス： <%= current_user.email %>
   </div>
+  <% if current_user.master? %>
+    <div>
+      <%= link_to "マスター画面", master_index_path %>
+      <%= link_to "管理者画面", admin_index_path %>
+      <%= link_to "一般ユーザ画面", general_index_path %>
+    </div>
+  <% elsif current_user.admin? %>
+    <div>
+      <%= link_to "管理者画面", admin_index_path %>
+      <%= link_to "一般ユーザ画面", general_index_path %>
+    </div>
+  <% elsif current_user.general? %>
+    <div>
+      <%= link_to "一般ユーザ画面", general_index_path %>
+    </div>
+  <% end %>
   <div>
     <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
   </div>
