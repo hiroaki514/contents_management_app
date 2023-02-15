@@ -11,6 +11,10 @@ ja:
         general: 一般
     errors:
       models:
+        user:
+          attributes:
+            role:
+              blank: "を選択してください"
       format: "%{message}"
       messages: &errors_messages
         inclusion: "が正しくありません。"
@@ -19,7 +23,6 @@ ja:
         confirmation: "が一致しません。"
         accepted: "をチェックしてください。"
         empty: "を入力してください。"
-        blank: "を入力してください。"
         required: "を入力してください。"
         too_long: "は%{count}文字以内で入力してください。"
         too_short: "は%{count}文字以上で入力してください。"
