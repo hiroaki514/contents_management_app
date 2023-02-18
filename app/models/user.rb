@@ -8,6 +8,5 @@ class User < ApplicationRecord
 
   enum role: { master: 0, admin: 1, general: 2 }
 
-  validates :name, presence: true
-  validates :role, presence: true
+  validates :name, :role, presence: true
 end
