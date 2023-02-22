@@ -20,3 +20,6 @@ Rails/NotNullColumn:
   Enabled: false
   Include:
     - db/migrate/*.rb
+
+Rails/FilePath:
+  Enabled: false
