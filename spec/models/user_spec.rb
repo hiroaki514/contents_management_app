@@ -16,5 +16,14 @@ RSpec.describe User, type: :model do
   end
 
   it '権限の選択が必須であること' do
+    role = User.new(
+      role: ''
+    )
+    expect(role).to be_invalid
+
+    role = User.new(
+      role: :admin
+    )
+    expect(role).to be_valid
   end
 end
