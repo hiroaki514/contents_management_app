@@ -4,6 +4,8 @@
     ユーザ名： <%= current_user.name %> <br />
     メールアドレス： <%= current_user.email %>
   </div>
+  
+  <%# MEMO: current_userがdeviseのメソッド、.master?がenumのメソッド %>
   <% if current_user.master? %>
     <div>
       <%= link_to "マスター画面", master_index_path %>
