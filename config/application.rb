@@ -19,7 +19,7 @@ module App
     config.generators do |g|
       g.assets false
       g.skip_routes false
-      g.test_framework false
+      g.test_framework :rspec
       g.helper false
     end
 
