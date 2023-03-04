@@ -34,6 +34,34 @@ $ git push --force-with-lease origin ブランチ名
 ```
 
 
+# deviseコマンドについて
+```
+・deviseのユーザモデル作成(初期設定)
+$rails g devise user
+
+・deviseのView作成
+$rails g devise:views users
+
+・deviseのcontroller作成
+$rails g devise:controllers users
+
+・deviseのルーティング設定
+例:
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions     : 'users/sessions'
+  }
+
+```
+
+# flashの記述
+```
+flash[:notice]: ユーザーに表示する通知メッセージを設定するキー。緑色の背景色が一般的です。
+flash[:alert]: ユーザーに表示するエラーメッセージを設定するキー。赤い背景色が一般的です。
+flash[:warning]: ユーザーに表示する警告メッセージを設定するキー。黄色の背景色が一般的です。
+flash[:success]: ユーザーに表示する成功メッセージを設定するキー。緑色の背景色が一般的です。
+```
+
 # テンプレート
 ```
 $
