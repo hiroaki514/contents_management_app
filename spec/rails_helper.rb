@@ -7,6 +7,21 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+
+require 'capybara/rails'
+Capybara.server = :puma, { Silent: true }
+Capybara.register_driver :headless_chromium do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--window-size=1366,768')
+  options.add_preference(:download, default_directory: DownloadHelper::PATH.to_s)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
+end
+Capybara.app_host = 'http://test.lvh.me'
+Capybara.server_port = 3001
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -40,6 +55,10 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  config.before(type: :system) do
+    driven_by(:selenium_chrome)
+  end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
