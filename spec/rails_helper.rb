@@ -8,19 +8,6 @@ require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 
-require 'capybara/rails'
-Capybara.server = :puma, { Silent: true }
-Capybara.register_driver :headless_chromium do |app|
-  options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument('--headless')
-  options.add_argument('--no-sandbox')
-  options.add_argument('--disable-dev-shm-usage')
-  options.add_argument('--window-size=1366,768')
-  options.add_preference(:download, default_directory: DownloadHelper::PATH.to_s)
-  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
-end
-Capybara.app_host = 'http://test.lvh.me'
-Capybara.server_port = 3001
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -82,4 +69,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # MEMO: deviseのメソッドを使用するための設定
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end
