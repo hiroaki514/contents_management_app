@@ -21,7 +21,6 @@ end
 group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
 end
 
 gem 'bootsnap', require: false
@@ -32,6 +31,7 @@ gem 'enum_help'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'mysql2', '~> 0.5'
+gem 'pry-rails'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4'
 gem 'rails-i18n'
