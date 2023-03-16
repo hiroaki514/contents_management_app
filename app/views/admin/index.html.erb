@@ -6,3 +6,6 @@ admin画面
 <% elsif current_user.admin? %>
   <%= link_to "一般ユーザ画面", general_index_path %>
 <% end %>
+
+<%= link_to "新規ユーザ登録",  new_admin_path %>
+
