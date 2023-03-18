@@ -2,8 +2,8 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, class: "form-label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
   <div class="field">
@@ -18,8 +18,8 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+  <div class="actions mt-3 mb-3">
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
   </div>
 <% end %>
 

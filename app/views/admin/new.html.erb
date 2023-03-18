@@ -1,5 +1,8 @@
 新規ユーザ登録(管理者権限)
 
+<%= render partial: "layouts/admin_side_bar", class: "admin_side_bar" %>
+
+
 <%= form_with(model: @user, url: master_index_path, method: :post) do |f| %>
   <%# エラーメッセージを出す記述 %>
   <% if @user.errors.any? %>
