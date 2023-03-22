@@ -1,4 +1,4 @@
-FROM ruby:3.1.2
+FROM ruby:3.2.1
 RUN apt-get update -qq && apt-get install -y nodejs yarnpkg
 RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
 RUN mkdir /app
