@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <%= render partial: "layouts/header", class: "header" %>
+    <% unless current_page?(new_user_session_path) %>
+      <%= render partial: "layouts/header", class: "header" %>
+    <% end %>
     <% flash.each do |message_type, message| %>
       <%= message %>
     <% end%>
