@@ -12,10 +12,10 @@
   <body>
     <% unless current_page?(new_user_session_path) %>
       <%= render partial: "layouts/header", class: "header" %>
+      <% flash.each do |message_type, message| %>
+        <%= message %>
+      <% end%>
     <% end %>
-    <% flash.each do |message_type, message| %>
-      <%= message %>
-    <% end%>
     <%= yield %>
 
   </body>
