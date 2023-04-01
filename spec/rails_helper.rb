@@ -8,6 +8,23 @@ require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 
+require 'selenium-webdriver'
+require 'capybara/rspec'
+
+# Capybara
+require 'capybara/rails'
+Capybara.server = :puma, { Silent: true }
+Capybara.register_driver :headless_chromium do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--window-size=1366,768')
+  options.add_preference(:download, default_directory: DownloadHelper::PATH.to_s)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
+end
+Capybara.server_port = 3001
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -23,7 +40,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -42,8 +59,13 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  config.before(type: :system) do
-    driven_by(:selenium_chrome)
+  # Driver
+  config.before(type: :system) do |ex|
+    if ex.metadata[:js]
+      driven_by(:headless_chromium)
+    else
+      driven_by(:rack_test)
+    end
   end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
