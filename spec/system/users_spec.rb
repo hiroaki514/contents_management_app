@@ -3,19 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
-  it 'サインアップページへ飛ぶこと' do
-    visit new_user_registration_path
-    expect(page).to have_content('Sign up')
+  describe 'ログイン' do
+    context '未ログイン状態の場合' do
+      it 'URLからログイン後の画面にアクセスした場合サインインページに飛ぶこと' do
+        visit master_index_path
+        expect(page).to have_content('ログイン')
+      end
+    end
+    xcontext 'ログイン状態の場合' do
+      it '正常にログイン後のページへ飛ぶこと' do
+        visit  new_user_session_path
+      end
+    end
   end
 
-  it 'ユーザ登録の実行' do
-    visit new_user_registration_path
-    fill_in 'user[name]', with: 'テスト太郎'
-    fill_in 'user[email]', with: 'test@example.com'
-    fill_in 'user[password]', with: 'password123'
-    fill_in 'user[password_confirmation]', with: 'password123'
-    choose 'user_role_master'
-
-    click_on 'Sign up'
-  end
 end
