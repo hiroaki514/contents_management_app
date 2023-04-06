@@ -48,6 +48,11 @@
     <%= f.radio_button :role, :general %>
   </div>
 
+  <div class="field">
+    <%= f.label :icon %>
+    <%= f.file_field :icon, direct_upload: true %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
