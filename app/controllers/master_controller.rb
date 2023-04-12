@@ -18,6 +18,6 @@ class MasterController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :role)
+    params.require(:user).permit(:name, :email, :password, :role, :icon)
   end
 end

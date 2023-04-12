@@ -73,6 +73,17 @@ flash[:success]: ユーザーに表示する成功メッセージを設定する
 current_page?(URL)でページの判別ができる
 ```
 
+# ActiveStrorageeの単数枚画像のアップロード方法
+```
+1. ActiveStorageのインストール
+  - $rails g active_storage:install
+2. ActiveStorageのテーブル作成
+  - $ rails db:migrate
+3. has_one_atacchedの記述を紐付けたいモデルに記述
+4. ビューにfile_fieledを追記する
+5.. コントローラでパラメータの記述を加える
+```
+
 # テンプレート
 ```
 $
