@@ -28,3 +28,15 @@ Rails/FilePath:
 
 Rails/I18nLocaleTexts:
   Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - db/schema.rb
