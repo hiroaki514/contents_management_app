@@ -12,20 +12,19 @@ class User < ApplicationRecord
   validate :file_size, :file_extension
   has_one_attached :icon
 
-
   private
 
   def file_size
     # MEMO: attached?とblobとbyte_sizeはActiveStorageのメソッド、megabytesはRailsのメソッド
-    if icon.attached? && icon.blob.byte_size > 5.megabytes
-      errors.add(:icon, 'は5MB以下のファイルをアップロードしてください')
-    end
+    return unless icon.attached? && icon.blob.byte_size > 5.megabytes
+
+    errors.add(:icon, 'は5MB以下のファイルをアップロードしてください')
   end
 
   def file_extension
-    if icon.attached? && icon.blob.image? && !['.jpg', '.jpeg', '.png'].include?(File.extname(icon.blob.filename.to_s).downcase)
+    if icon.attached? && icon.blob.image? && ['.jpg', '.jpeg',
+                                              '.png'].exclude?(File.extname(icon.blob.filename.to_s).downcase)
       errors.add(:icon, 'はJPEGまたはPNG形式のファイルをアップロードしてください')
     end
   end
-
 end
