@@ -12,9 +12,8 @@ RSpec.describe 'Users', type: :system do
     end
     xcontext 'ログイン状態の場合' do
       it '正常にログイン後のページへ飛ぶこと' do
-        visit  new_user_session_path
+        visit new_user_session_path
       end
     end
   end
-
 end

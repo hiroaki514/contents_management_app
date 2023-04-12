@@ -9,6 +9,7 @@ ja:
         master: マスター
         admin: 管理者
         general: 一般
+        icon: アイコン画像
     errors:
       models:
         user:
