@@ -9,4 +9,5 @@ class User < ApplicationRecord
   enum role: { master: 0, admin: 1, general: 2 }
 
   validates :name, :role, presence: true
+  has_one_attached :icon
 end
