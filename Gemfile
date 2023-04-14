@@ -25,7 +25,7 @@ group :test do
 end
 
 gem 'bootsnap', require: false
-gem 'bootstrap', '~> 5.1.3'
+gem 'bootstrap', '~> 5.2.3'
 gem 'devise'
 gem 'devise-i18n'
 gem 'enum_help'
