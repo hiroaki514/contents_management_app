@@ -10,7 +10,9 @@ class User < ApplicationRecord
 
   validates :name, :role, presence: true
   validate :file_size, :file_extension
-  has_one_attached :icon
+  has_one_attached :icon do |attachable|
+    attachable.variant :thumb, resize_to_limit: [100, 100]
+  end
 
   private
 
