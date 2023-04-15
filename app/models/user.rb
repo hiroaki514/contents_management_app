@@ -10,8 +10,7 @@ class User < ApplicationRecord
 
   validates :name, :role, presence: true
   validate :file_size, :file_extension
-  has_one_attached :icon 
-
+  has_one_attached :icon
 
   private
 

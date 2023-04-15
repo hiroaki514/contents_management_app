@@ -4,7 +4,6 @@ master画面
 
 <%= link_to "管理者画面", admin_index_path %>
 <%= link_to "一般ユーザ画面", general_index_path %>
-<% @users.each do |user| %>
-  <%= link_to user.name, master_path(user) %>
-<% end %>
+
+<%= paginate(@users) %>
 
