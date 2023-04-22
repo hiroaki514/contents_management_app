@@ -9,3 +9,22 @@ admin画面
   <%= link_to "一般ユーザ画面", general_index_path %>
 <% end %>
 
+<table border='1' class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>メールアドレス</th>
+      <th>権限</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.find_each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

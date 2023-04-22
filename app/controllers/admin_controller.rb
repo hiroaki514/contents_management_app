@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class AdminController < ApplicationController
+  def index
+    # @users = User.where(role: %i[admin general])
+    @users = User.where.not(role: :master)
+  end
+
   def new
     @user = User.new
   end
