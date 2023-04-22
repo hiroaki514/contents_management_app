@@ -3,7 +3,7 @@
 class AdminController < ApplicationController
   def index
     # @users = User.where(role: %i[admin general])
-    @users = User.where.not(role: :master)
+    @users = User.where.not(role: :master).page(params[:page]).per(10)
   end
 
   def new
