@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   def file_size
     # MEMO: attached?とblobとbyte_sizeはActiveStorageのメソッド、megabytesはRailsのメソッド
-    return unless icon.attached? && icon.blob.byte_size > 5.megabytes
+    return unless icon.attached? && icon.blob.byte_size >= 5.megabytes
 
     errors.add(:icon, 'は5MB以下のファイルをアップロードしてください')
   end
