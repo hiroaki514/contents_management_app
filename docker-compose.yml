@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: mysql:5.7
+    image: mysql:8.0.32
     volumes:
       - ./tmp/db:/var/lib/mysql
     environment:
