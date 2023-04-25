@@ -22,9 +22,7 @@ class User < ApplicationRecord
   end
 
   def file_extension
-    if icon.attached? && icon.blob.image? && ['.jpg', '.jpeg',
-                                              '.png'].exclude?(File.extname(icon.blob.filename.to_s).downcase)
-      errors.add(:icon, 'はJPEGまたはPNG形式のファイルをアップロードしてください')
-    end
+    extension = ['image/png', 'image/jpg', 'image/jpeg']
+    errors.add(:icon, 'はJPEGまたはPNG形式のファイルをアップロードしてください') unless icon.content_type.in?(extension)
   end
 end
