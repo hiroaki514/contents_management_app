@@ -10,9 +10,16 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content('ログイン')
       end
     end
-    xcontext 'ログイン状態の場合' do
+
+    context 'ログイン状態の場合' do
       it '正常にログイン後のページへ飛ぶこと' do
         visit new_user_session_path
+        expect(page).to have_content('Content Management App')
+
+        fill_in 'user[email]', with: 'hiroaki5141616@me.com'
+        fill_in 'user[password]', with: 'password123'
+        click_on 'ログイン'
+        expect(page).to have_content('ログインしました。')
       end
     end
   end
