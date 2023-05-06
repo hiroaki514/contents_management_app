@@ -4,15 +4,27 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe '#validation' do
-    context '名前のバリデーション' do
+    context '入力項目のバリデーション' do
       it '名前の入力が必須であること' do
         user = build(:user, name: '')
-        expect(user).to be_invalid
+        user.valid?
+        expect(user.errors.full_messages).to include('名前を入力してください')
+      end
+
+      it 'メールアドレスの入力が必須であること' do
+        user = build(:user, email: '')
+        user.valid?
+        expect(user.errors.full_messages).to include('メールアドレスを入力してください')
+      end
+
+      it 'パスワードの入力が必須であること' do
+        user = build(:user, password: '')
+        user.valid?
+        expect(user.errors.full_messages).to include('パスワードを入力してください')
       end
 
       it '権限の選択が必須であること' do
         user = build(:user, role: '')
-        expect(user).to be_invalid
 
         # MEMO: エラーメッセージを確認する場合の記述(includeを使ってテストする場合)
         user.valid? # valid?を実行しないとエラーメッセージが取得できない
@@ -20,6 +32,7 @@ RSpec.describe User, type: :model do
       end
     end
 
+    
     context 'ファイルサイズのバリデーション' do
       context 'ファイルサイズが5MB以下の場合' do
         let(:under_5mb_file) { Rails.root.join('spec/fixtures/under_5mb_file.jpg') }
@@ -37,7 +50,8 @@ RSpec.describe User, type: :model do
         it 'ファイルサイズが5MB超えであること' do
           user = build(:user)
           user.icon = fixture_file_upload(over_5mb_file)
-          expect(user).to be_invalid
+          user.valid?
+          expect(user.errors.full_messages).to include('は5MB以下のファイルをアップロードしてください')
         end
       end
     end
@@ -79,7 +93,8 @@ RSpec.describe User, type: :model do
         it '不正なユーザになること' do
           user = build(:user)
           user.icon = fixture_file_upload(txt_file)
-          expect(user).to be_invalid
+          user.valid?
+          expect(user.errors.full_messages).to include('JPEGまたはPNG形式のファイルをアップロードしてください')
         end
       end
     end
