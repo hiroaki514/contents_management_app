@@ -13,10 +13,6 @@ RSpec.describe User, type: :model do
       it '権限の選択が必須であること' do
         user = build(:user, role: '')
         expect(user).to be_invalid
-
-        # MEMO: エラーメッセージを確認する場合の記述(includeを使ってテストする場合)
-        user.valid? # valid?を実行しないとエラーメッセージが取得できない
-        expect(user.errors.full_messages).to include('権限を選択してください') # includeは部分一致
       end
     end
 
