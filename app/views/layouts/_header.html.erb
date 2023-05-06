@@ -1,16 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: gray;">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">Navbar</a>
+    <a class="navbar-brand text-white" href="#">ContentsManagementApp</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <%
+=begin%>
+ <li class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+        </li> 
+<%
+=end%>
+        <li class="nav-item">
+          <% if current_user.master? && !current_page?(master_index_path) %>
+            <a class="nav-link text-white" href="<%= master_index_path %>">マスター画面</a>
+          <% elsif !current_page?(admin_index_path) || current_page?(general_index_path) %>
+            <a class="nav-link text-white" href="<%= admin_index_path %>">管理者画面</a>
+          <% end %>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Link</a>
+          <% if current_page?(master_index_path) || current_page?(admin_index_path) %>
+            <a class="nav-link text-white" href="<%= general_index_path %>">一般ユーザ画面</a>
+          <% end %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
