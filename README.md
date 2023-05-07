@@ -94,6 +94,13 @@ current_page?(URL)でページの判別ができる
  - 合致したもの全てを取得
 ```
 
+# コンテナのクリーンアップ
+```
+% docker stop $(docker ps -q)
+% docker rm $(docker ps -aq)
+% docker rmi $(docker images -q)
+```
+
 # テンプレート
 ```
 $
