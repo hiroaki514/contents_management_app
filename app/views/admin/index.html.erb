@@ -1,13 +1,13 @@
 admin画面
 
 <%= render partial: "layouts/admin_side_bar", class: "admin_side_bar" %>
+
 <% if current_user.master? %>
   <%= link_to "マスター画面", master_index_path %>
   <%= link_to "一般ユーザ画面", general_index_path %>
 <% elsif current_user.admin? %>
   <%= link_to "一般ユーザ画面", general_index_path %>
 <% end %>
-
 
 <table border='1' class="table">
   <thead>
