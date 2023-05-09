@@ -16,7 +16,10 @@
         <li class="nav-item">
           <% if current_user.master? && !current_page?(master_index_path) %>
             <a class="nav-link text-white" href="<%= master_index_path %>">マスター画面</a>
-          <% elsif !current_page?(admin_index_path) || current_page?(general_index_path) %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <% if !current_page?(admin_index_path) || current_page?(general_index_path) %>
             <a class="nav-link text-white" href="<%= admin_index_path %>">管理者画面</a>
           <% end %>
         </li>
@@ -25,20 +28,56 @@
             <a class="nav-link text-white" href="<%= general_index_path %>">一般ユーザ画面</a>
           <% end %>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+        <% if !current_page?(general_index_path) %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ユーザ管理
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if current_page?(master_index_path) %>
+                <li><a class="dropdown-item" href="<%= new_master_path %>">新規ユーザ登録</a></li>
+              <% elsif current_page?(admin_index_path) %>
+                <li><a class="dropdown-item" href="<%= new_admin_path %>">新規ユーザ登録</a></li>
+              <% end %>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              組織管理
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="<%= new_master_path %>">新規組織登録</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              コンテンツ管理
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="<%= new_master_path %>">コンテンツ登録</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              各種設定
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="<%= new_master_path %>">ログ</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
