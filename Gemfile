@@ -22,6 +22,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'simplecov'
 end
 
 gem 'bootsnap', require: false
