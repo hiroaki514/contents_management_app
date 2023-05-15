@@ -23,7 +23,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov'
-
 end
 
 gem 'bootsnap', require: false

@@ -31,7 +31,6 @@ RSpec.describe User, type: :model do
       end
     end
 
-    
     context 'ファイルサイズのバリデーション' do
       context 'ファイルサイズが5MB以下の場合' do
         let(:under_5mb_file) { Rails.root.join('spec/fixtures/under_5mb_file.jpg') }
