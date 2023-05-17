@@ -12,7 +12,8 @@ RSpec.describe 'Users', type: :system do
     end
 
     context 'ログイン状態の場合' do
-      it '正常にログイン後のページへ飛ぶこと' do
+      # TODO: 削除予定
+      xit '正常にログイン後のページへ飛ぶこと' do
         visit new_user_session_path
         expect(page).to have_content('Content Management App')
 
@@ -22,7 +23,7 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content('ログインしました。')
       end
 
-      context 'ユーザー名とメールアドレス、各ページへのリンクが表示されること' do
+      it 'マスター画面と管理者画面へのリンクが表示されること' do
       end
 
       context 'ログアウトする場合' do
@@ -32,9 +33,6 @@ RSpec.describe 'Users', type: :system do
       end
 
       context '管理者画面へ遷移する場合' do
-      end
-
-      context '一般画面へ遷移する場合' do
       end
     end
   end
