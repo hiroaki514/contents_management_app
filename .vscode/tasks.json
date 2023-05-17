@@ -24,7 +24,7 @@
     {
       "label": "rspec here",
       "type": "shell",
-      "command": "rspec -fd ${relativeFile}:${lineNumber}",
+      "command": "docker compose run web rspec -fd ${relativeFile}:${lineNumber}",
       "group": "test",
       "problemMatcher": [
         {
