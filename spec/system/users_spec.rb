@@ -21,6 +21,21 @@ RSpec.describe 'Users', type: :system do
         click_on 'ログイン'
         expect(page).to have_content('ログインしました。')
       end
+
+      context 'ユーザー名とメールアドレス、各ページへのリンクが表示されること' do
+      end
+
+      context 'ログアウトする場合' do
+      end
+
+      context 'マスター画面へ遷移する場合' do
+      end
+
+      context '管理者画面へ遷移する場合' do
+      end
+
+      context '一般画面へ遷移する場合' do
+      end
     end
   end
 end
