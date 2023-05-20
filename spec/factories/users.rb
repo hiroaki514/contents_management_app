@@ -6,10 +6,10 @@ FactoryBot.define do
     email { 'test@example.com' }
     password { 'password1234' }
     role { 'master' }
-    
-    after(:build) do |user|
-      user.icon.attach(io: Rails.root.join('spec/fixtures/sample.jpg'), filename: 'sample.jpg', content_type: 'image/jpg')
-    end
 
+    after(:build) do |user|
+      user.icon.attach(io: Rails.root.join('spec/fixtures/sample.jpg'), filename: 'sample.jpg',
+                       content_type: 'image/jpg')
+    end
   end
 end
