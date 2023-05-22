@@ -8,8 +8,8 @@ FactoryBot.define do
     role { 'master' }
 
     after(:build) do |user|
-      user.icon.attach(io: Rails.root.join('spec/fixtures/sample.jpg'), filename: 'sample.jpg',
-                       content_type: 'image/jpg')
+      file = Rails.root.join('spec/fixtures/sample.jpeg').open
+      user.icon.attach(io: file, filename: 'sample.jpeg', content_type: 'image/jpeg')
     end
   end
 end
