@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :master
   resources :admin
   resources :general
+
+  get 'hello', to: 'application#hello'
 end
