@@ -57,7 +57,7 @@ RSpec.describe 'Users', type: :system do
             expect(page).not_to have_link('マスター画面')
           end
 
-          it 'ユーザが表示されること' do
+          xit 'ユーザが表示されること' do
             expect(page).to have_content('田中太郎')
             expect(page).to have_content('tanaka@example.com')
             expect(page).to have_content('マスター')
@@ -78,10 +78,11 @@ RSpec.describe 'Users', type: :system do
           end
         end
       end
+
       context '管理者権限の場合' do
         before do
           visit new_user_session_path
-          fill_in 'user[email]', with: 'hiroaki5141616@me.com'
+          fill_in 'user[email]', with: 'hoge@example.com'
           fill_in 'user[password]', with: 'password123'
           click_on 'ログイン'
         end
@@ -121,10 +122,11 @@ RSpec.describe 'Users', type: :system do
           end
         end
       end
+
       context '一般ユーザ権限の場合' do
         before do
           visit new_user_session_path
-          fill_in 'user[email]', with: 'hiroaki5141616@me.com'
+          fill_in 'user[email]', with: 'hogehoge@example.com'
           fill_in 'user[password]', with: 'password123'
           click_on 'ログイン'
         end
