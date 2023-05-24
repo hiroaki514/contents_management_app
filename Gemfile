@@ -48,5 +48,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 
-gem 'dotenv-rails', groups: %i[development test]
 gem 'slack-ruby-client'
