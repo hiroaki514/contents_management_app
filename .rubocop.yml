@@ -38,4 +38,8 @@ Metrics/MethodLength:
     - db/migrate/*.rb
 
 Metrics/BlockLength:
-  Enabled: false
+  Exclude:
+    - db/schema.rb
+    - "spec/**/*"
+
+
