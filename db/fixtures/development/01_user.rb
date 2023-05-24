@@ -19,7 +19,11 @@ end
 User.seed do |s|
   s.id = 3
   s.name = '穂夏次郎'
+<<<<<<< HEAD
   s.email = 'hoge2@example.com'
+=======
+  s.email = 'hogehoge@example.com'
+>>>>>>> 3bf6955 (seed_fuファイルの修正)
   s.password = 'password123'
   s.role = 2
 end
@@ -27,7 +31,11 @@ end
 User.seed do |s|
   s.id = 4
   s.name = '穂夏三郎'
+<<<<<<< HEAD
   s.email = 'hoge3@example.com'
+=======
+  s.email = 'hogehogehoge@example.com'
+>>>>>>> 3bf6955 (seed_fuファイルの修正)
   s.password = 'password123'
   s.role = 2
 end
@@ -35,7 +43,11 @@ end
 User.seed do |s|
   s.id = 5
   s.name = '穂夏四郎'
+<<<<<<< HEAD
   s.email = 'hoge4@example.com'
+=======
+  s.email = 'hogehogehogehoge@example.com'
+>>>>>>> 3bf6955 (seed_fuファイルの修正)
   s.password = 'password123'
   s.role = 2
 end

@@ -73,6 +73,63 @@ RSpec.describe 'Users', type: :system do
           end
         end
       end
+      context '管理者権限の場合' do
+        before do
+          visit new_user_session_path
+          fill_in 'user[email]', with: 'hiroaki5141616@me.com'
+          fill_in 'user[password]', with: 'password123'
+          click_on 'ログイン'
+        end
+
+        it '管理者画面とマスター画面へのリンクが表示されること' do
+          expect(page).to have_link('マスター画面')
+          expect(page).to have_link('管理者画面')
+        end
+      
+        context 'ログアウトする場合' do
+          before do
+            click_on 'ログアウト'
+          end
+
+          it 'ログインページに遷移すること' do
+            expect(page).to have_content('ログイン')
+          end
+        end
+
+        context '管理者画面へ遷移する場合' do
+          before do
+            click_on '管理者画面'
+          end
+
+          it '一般ユーザ画面のリンクが表示されていること' do
+            expect(page).to have_link('一般ユーザ画面')
+          end
+
+          it '管理者画面のリンクが表示されていないこと' do
+            expect(page).not_to have_link('マスター画面')
+          end
+
+          it 'ユーザが表示されること' do
+            expect(page).to have_content('田中太郎')
+            expect(page).to have_content('tanaka@example.com')
+            expect(page).to have_content('マスター')
+          end
+        end
+
+        context 'マスター画面へ遷移する場合' do
+          before do
+            click_on 'マスター画面'
+          end
+
+          it '一般ユーザ画面のリンクが表示されていること' do
+            expect(page).to have_link('一般ユーザ画面')
+          end
+
+          it 'マスター画面のリンクが表示されていないこと' do
+            expect(page).not_to have_link('マスター画面')
+          end
+        end
+      end
     end
   end
 end
