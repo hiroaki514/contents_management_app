@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
+  before do
+    create(:user, name: '田中太郎', email: 'tanaka@example.com', role: 'master')
+  end
+
   describe 'ログイン' do
     context '未ログイン状態の場合' do
       it 'URLからログイン後の画面にアクセスした場合サインインページに飛ぶこと' do
