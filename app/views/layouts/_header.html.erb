@@ -19,7 +19,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <% if current_user.admin? && ( !current_page?(admin_index_path) || current_page?(general_index_path) )%>
+          <% if ( current_user.master? || current_user.admin? ) && ( !current_page?(admin_index_path) || current_page?(general_index_path) )%>
             <a class="nav-link text-white" href="<%= admin_index_path %>">管理者画面</a>
           <% end %>
         </li>

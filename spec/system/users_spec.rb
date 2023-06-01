@@ -58,9 +58,9 @@ RSpec.describe 'Users', type: :system do
             expect(page).not_to have_link('マスター画面')
           end
 
-          xit 'ユーザが表示されること' do
-            expect(page).to have_content('田中太郎')
-            expect(page).to have_content('tanaka@example.com')
+          it 'ユーザが表示されること' do
+            expect(page).to have_content('穂夏太郎')
+            expect(page).to have_content('hiroaki5141616@me.com')
             expect(page).to have_content('マスター')
           end
         end
@@ -116,10 +116,10 @@ RSpec.describe 'Users', type: :system do
             expect(page).not_to have_link('管理者画面')
           end
 
-          xit 'ユーザが表示されること' do
-            expect(page).to have_content('田中太郎')
-            expect(page).to have_content('tanaka@example.com')
-            expect(page).to have_content('マスター')
+          it 'ユーザが表示されること' do
+            expect(page).to have_content('穂夏次郎')
+            expect(page).to have_content('hoge@example.com')
+            expect(page).to have_content('管理者')
           end
         end
       end
