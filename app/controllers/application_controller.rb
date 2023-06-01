@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   def hello
     client = Slack::Web::Client.new
     client.chat_postMessage(
-      channel: '#new_userチャンネル',
+      channel: '#random',
       text: '通知テスト'
     )
   end
