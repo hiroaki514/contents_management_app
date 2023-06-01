@@ -19,7 +19,7 @@ end
 User.seed do |s|
   s.id = 3
   s.name = '穂夏次郎'
-  s.email = 'hogehoge@example.com'
+  s.email = 'hoge2@example.com'
   s.password = 'password123'
   s.role = 2
 end
@@ -27,7 +27,7 @@ end
 User.seed do |s|
   s.id = 4
   s.name = '穂夏三郎'
-  s.email = 'hogehogehoge@example.com'
+  s.email = 'hoge3@example.com'
   s.password = 'password123'
   s.role = 2
 end
@@ -35,7 +35,7 @@ end
 User.seed do |s|
   s.id = 5
   s.name = '穂夏四郎'
-  s.email = 'hogehogehogehoge@example.com'
+  s.email = 'hoge4@example.com'
   s.password = 'password123'
   s.role = 2
 end

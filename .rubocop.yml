@@ -40,3 +40,5 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Exclude:
     - db/schema.rb
+    - "spec/**/*"
+    - config/routes.rb
