@@ -1,5 +1,5 @@
 FROM ruby:3.2.2
-RUN apt-get update -qq && apt-get install -y nodejs yarnpkg chromium chromium-driver
+RUN apt-get update -qq && apt-get install -y nodejs yarnpkg chromium chromium-driver vim
 RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
 RUN mkdir /app
 WORKDIR /app
