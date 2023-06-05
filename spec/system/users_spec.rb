@@ -15,8 +15,31 @@ RSpec.describe 'Users', type: :system do
       end
     end
 
-    xcontext 'ログイン情報に不備がある場合' do
-      it 'エラーメッセージと共にログインページへ戻されること' do
+    context 'ログイン情報に不備がある場合' do
+      context 'メールアドレスに不備がある場合' do
+        before do
+          visit new_user_session_path
+          fill_in 'user[email]', with: '5141616@me.com'
+          fill_in 'user[password]', with: 'password123'
+          click_on 'ログイン'
+        end
+
+        it 'エラーメッセージと共にログインページへ戻されること' do
+          expect(page).to have_content('メールアドレスまたはパスワードが違います。')
+        end
+      end
+
+      context 'パスワードに不備がある場合' do
+        before do
+          visit new_user_session_path
+          fill_in 'user[email]', with: 'hiroaki5141616@me.com'
+          fill_in 'user[password]', with: 'password'
+          click_on 'ログイン'
+        end
+
+        it 'エラーメッセージと共にログインページへ戻されること' do
+          expect(page).to have_content('メールアドレスまたはパスワードが違います。')
+        end
       end
     end
 
