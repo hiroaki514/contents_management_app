@@ -109,10 +109,6 @@ GEM
       devise (>= 4.9.0)
     diff-lcs (1.5.0)
     docile (1.4.0)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
     enum_help (0.0.19)
       activesupport (>= 3.0.0)
     erubi (1.12.0)
@@ -362,7 +358,6 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
-  dotenv-rails
   enum_help
   factory_bot_rails
   image_processing
