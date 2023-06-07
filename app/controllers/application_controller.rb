@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # MEMO: :Slackのnew_userチャンネル通知用
+  def hello
+    client = Slack::Web::Client.new
+    client.chat_postMessage(
+      channel: '#random',
+      text: '通知テスト'
+    )
+  end
+
+
   protected
 
   def configure_permitted_parameters
@@ -14,13 +24,5 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(_resource)
     general_index_path
   end
-
-  # MEMO: :Slackのnew_userチャンネル通知用
-  def hello
-    client = Slack::Web::Client.new
-    client.chat_postMessage(
-      channel: '#random',
-      text: '通知テスト'
-    )
-  end
+  
 end
