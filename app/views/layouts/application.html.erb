@@ -14,10 +14,6 @@
       <% if current_user.present? %>
         <%= render partial: "layouts/header", class: "header" %>
       <% end %>
-      <% flash.each do |message_type, message| %>
-        <%= message %>
-      <% end%>
-    <% end %>
     <%= yield %>
 
   </body>
