@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'slack-ruby-client'
+
 class ApplicationController < ActionController::Base
   # MEMO: :"authenticate_user!"はログインしていない場合ログインページに飛ばす記述
   before_action :authenticate_user!
@@ -12,8 +14,8 @@ class ApplicationController < ActionController::Base
       channel: '#random',
       text: '通知テスト'
     )
+    redirect_to general_index_path, notice: '通知テストが完了しました'
   end
-
 
   protected
 
@@ -24,5 +26,4 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(_resource)
     general_index_path
   end
-  
 end
