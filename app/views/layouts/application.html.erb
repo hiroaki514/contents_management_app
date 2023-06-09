@@ -11,7 +11,9 @@
 
   <body>
     <% unless current_page?(new_user_session_path) %>
-      <%= render partial: "layouts/header", class: "header" %>
+      <% if current_user.present? %>
+        <%= render partial: "layouts/header", class: "header" %>
+      <% end %>
       <% flash.each do |message_type, message| %>
         <%= message %>
       <% end%>
