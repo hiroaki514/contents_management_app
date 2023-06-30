@@ -101,6 +101,22 @@ current_page?(URL)でページの判別ができる
 % docker rmi $(docker images -q)
 ```
 
+# アソシエーション
+```
+・アソシエーションはモデル間の紐づけ
+・一対多
+  has_many :posts (複数形)
+  belongs_to :user
+・一対一
+  has_one :post (単数形)
+  belongs_to :user
+・dependentオプション
+  :destroy (削除)
+  :delete_all (削除)
+  :nullify (削除しない)
+  :restrict_with_error (エラーを返す)
+```
+
 # テンプレート
 ```
 $
