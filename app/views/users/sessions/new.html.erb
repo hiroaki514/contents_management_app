@@ -22,7 +22,9 @@
       <div class="actions">
         <% flash.each do |message_type, message| %>
           <div class="flash_error_message mb-3">
-            <%= message %>
+            <% unless message == 'ログインもしくはアカウント登録してください。' %>
+              <%= message %>
+            <% end %>
           </div>
         <% end%>
 
