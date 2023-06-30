@@ -15,6 +15,7 @@ RSpec.describe 'Users', type: :system do
       end
     end
 
+
     context 'ログイン情報に不備がある場合' do
       context 'メールアドレスに不備がある場合' do
         before do
