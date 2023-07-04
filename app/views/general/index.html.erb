@@ -1,3 +1,20 @@
 general画面
 
+
+
+
+<%= form_with(model: @post) do |f| %>
+
+  <div>
+    <%= f.label :body, style: "display: block" %>
+    <%= f.text_field :body %>
+  </div>
+   <div>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= button_to "ログアウト", destroy_user_session_path, method: :delete  %>

@@ -117,6 +117,19 @@ current_page?(URL)でページの判別ができる
   :restrict_with_error (エラーを返す)
 ```
 
+# アソシエーションのデータ作成とデータ取得
+```
+  作成(一対多の場合)
+  user.posts.create(body: "テスト")
+    作成(一対一の場合)
+  user.post.create(body: "テスト")
+
+  取得(一対多の場合)
+  user.posts
+    取得(一対一の場合)
+  user.post
+```
+
 # テンプレート
 ```
 $
