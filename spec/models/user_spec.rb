@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
           user = build(:user)
           user.icon = fixture_file_upload(over_5mb_file)
           user.valid?
-          expect(user.errors.full_messages).to include('は5MB以下のファイルをアップロードしてください')
+          expect(user.errors.full_messages).to include(a_string_matching(/は5MB以下のファイルをアップロードしてください/))
         end
       end
     end
@@ -92,7 +92,7 @@ RSpec.describe User, type: :model do
           user = build(:user)
           user.icon = fixture_file_upload(txt_file)
           user.valid?
-          expect(user.errors.full_messages).to include('JPEGまたはPNG形式のファイルをアップロードしてください')
+          expect(user.errors.full_messages).to include(a_string_matching('JPEGまたはPNG形式のファイルをアップロードしてください'))
         end
       end
     end

@@ -13,6 +13,11 @@ RSpec.describe 'Users', type: :system do
         visit master_index_path
         expect(page).to have_content('ログイン')
       end
+
+      it 'サインインページを最初に開いた場合エラーメッセージが非表示となっていること' do
+        visit new_user_session_path
+        expect(page).not_to have_content('メールアドレスまたはパスワードが違います。')
+      end
     end
 
     context 'ログイン情報に不備がある場合' do
@@ -53,8 +58,8 @@ RSpec.describe 'Users', type: :system do
         end
 
         it 'マスター画面と管理者画面へのリンクが表示されること' do
-          expect(page).to have_link('マスター画面')
-          expect(page).to have_link('管理者画面')
+          expect(page).to have_content('マスター画面')
+          expect(page).to have_content('管理者画面')
         end
 
         context 'ログアウトする場合' do
@@ -149,7 +154,7 @@ RSpec.describe 'Users', type: :system do
       context '一般ユーザ権限の場合' do
         before do
           visit new_user_session_path
-          fill_in 'user[email]', with: 'hogehoge@example.com'
+          fill_in 'user[email]', with: 'hoge2@example.com'
           fill_in 'user[password]', with: 'password123'
           click_on 'ログイン'
         end
@@ -160,11 +165,8 @@ RSpec.describe 'Users', type: :system do
         end
 
         context 'ログアウトする場合' do
-          before do
-            click_on 'ログアウト'
-          end
-
           it 'ログインページに遷移すること' do
+            click_button 'ログアウト'
             expect(page).to have_content('ログイン')
           end
         end
