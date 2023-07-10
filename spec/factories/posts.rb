@@ -2,5 +2,7 @@
 
 FactoryBot.define do
   factory :post do
+    body { 'テスト投稿の本文' }
+    association :user
   end
 end
