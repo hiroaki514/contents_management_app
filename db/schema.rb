@@ -40,6 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 20_230_630_112_713) do
                                                  force: :cascade do |t|
     t.bigint 'blob_id', null: false
     t.string 'variation_digest', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
     t.index %w[blob_id variation_digest], name: 'index_active_storage_variant_records_uniqueness', unique: true
   end
 
