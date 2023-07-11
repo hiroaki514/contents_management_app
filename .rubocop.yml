@@ -42,3 +42,7 @@ Metrics/BlockLength:
     - db/schema.rb
     - "spec/**/*"
     - config/routes.rb
+
+Rails/CreateTableWithTimestamps:
+  Exclude:
+    - db/migrate/*.rb
