@@ -27,9 +27,11 @@ end
 
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.2.3'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 gem 'devise'
 gem 'devise-i18n'
 gem 'enum_help'
+gem 'erb_lint'
 gem 'image_processing'
 gem 'importmap-rails'
 gem 'jbuilder'
@@ -41,10 +43,8 @@ gem 'rails', '~> 7.0.4'
 gem 'rails-i18n'
 gem 'sassc-rails'
 gem 'seed-fu'
+gem 'slack-ruby-client'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'erb_lint'gem 'slack-ruby-client'
-
