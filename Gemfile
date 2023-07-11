@@ -44,8 +44,7 @@ gem 'seed-fu'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'erb_lint'gem 'slack-ruby-client'
 
-gem 'slack-ruby-client'

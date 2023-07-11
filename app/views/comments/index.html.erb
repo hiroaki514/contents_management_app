@@ -1,32 +1,32 @@
 <h1>Content Management App</h1>
 <% if user_signed_in? %>
   <div>
-    ユーザ名： <%= current_user.name %> <br />
+    ユーザ名： <%= current_user.name %> <br>
     メールアドレス： <%= current_user.email %>
   </div>
-  
+
   <%# MEMO: current_userがdeviseのメソッド、.master?がenumのメソッド %>
   <% if current_user.master? %>
     <div>
-      <%= link_to "マスター画面", master_index_path %>
-      <%= link_to "管理者画面", admin_index_path %>
-      <%= link_to "一般ユーザ画面", general_index_path %>
+      <%= link_to 'マスター画面', master_index_path %>
+      <%= link_to '管理者画面', admin_index_path %>
+      <%= link_to '一般ユーザ画面', general_index_path %>
     </div>
   <% elsif current_user.admin? %>
     <div>
-      <%= link_to "管理者画面", admin_index_path %>
-      <%= link_to "一般ユーザ画面", general_index_path %>
+      <%= link_to '管理者画面', admin_index_path %>
+      <%= link_to '一般ユーザ画面', general_index_path %>
     </div>
   <% elsif current_user.general? %>
     <div>
-      <%= link_to "一般ユーザ画面", general_index_path %>
+      <%= link_to '一般ユーザ画面', general_index_path %>
     </div>
   <% end %>
   <div>
-    <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
   </div>
 <% else %>
   <h2> 現在ログインしていません </h2>
-  <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-  <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+  <%= link_to 'ログイン', new_user_session_path, class: 'post' %>
+  <%= link_to '新規登録', new_user_registration_path, class: 'post' %>
 <% end %>
