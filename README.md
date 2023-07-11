@@ -13,6 +13,11 @@ $ docker compose run web rails db:seed_fu
 $ docker compose run web rubocop -A
 ```
 
+# erblintの実行
+```
+$ docker compose run web erblint --lint-all -a
+```
+
 # 強制プッシュ時の方法
 ```
 $ git push --force-with-lease origin ブランチ名
