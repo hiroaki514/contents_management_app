@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
 
     <% unless current_page?(new_user_session_path) %>
       <% if current_user.present? %>
-        <%= render partial: "layouts/header", class: "header" %>
+        <%= render partial: 'layouts/header', class: 'header' %>
       <% end %>
     <% end %>
     <%= yield %>
