@@ -33,4 +33,8 @@ ja:
         master: マスター
         admin: 管理者
         general: 一般
-
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      except_seconds: "%Y/%m/%d %H:%M"
+      only_date: "%Y/%m/%d"
