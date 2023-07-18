@@ -20,7 +20,7 @@ general画面
 <div>投稿履歴</div>
 <div>
 <% @posts.order(created_at: :desc).limit(5).each do |post| %>
-  <%= post.body %> - <%= l post.created_at, format: :default %></br>
+  <%= post.body %> - <%= l post.created_at, format: :default %><%= button_to '削除', general_path(post.id), method: :delete %></br>
 <% end %>
 
 </div>

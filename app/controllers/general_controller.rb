@@ -19,6 +19,12 @@ class GeneralController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to general_index_path, notice: '削除が完了しました'
+  end
+
   private
 
   def post_params
