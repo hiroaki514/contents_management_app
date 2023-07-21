@@ -85,8 +85,8 @@ current_page?(URL)でページの判別ができる
 2. ActiveStorageのテーブル作成
   - $ rails db:migrate
 3. has_one_atacchedの記述を紐付けたいモデルに記述
-4. ビューにfile_fieledを追記する
-5.. コントローラでパラメータの記述を加える
+4. ビューにfile_fieledを追記する(ファイル投稿用のボタン)
+5. コントローラでパラメータの記述を加える
 ```
 
 # 検索用メソッドの違い
