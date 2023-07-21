@@ -9,9 +9,13 @@ general画面
     <%= f.label :body, style: "display: block" %>
     <%= f.text_field :body %>
   </div>
-   <div>
+  <div>
     <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
+
+  <div>動画投稿</div>
+  <%= f.file_field :video, direct_upload: true %>
+
   <div>
     <%= f.submit %>
   </div>
@@ -21,8 +25,12 @@ general画面
 <div>
 <% @posts.order(created_at: :desc).limit(5).each do |post| %>
   <%= post.body %> - <%= l post.created_at, format: :default %><%= button_to '削除', general_path(post.id), method: :delete %></br>
+  <% if post.video.attached? %>
+    <video src="<%= rails_blob_path(post.video) %>" type="video/mp4" controls></video>
+  <% end %>
 <% end %>
 
 </div>
+
 
 <%= button_to "ログアウト", destroy_user_session_path, method: :delete  %>

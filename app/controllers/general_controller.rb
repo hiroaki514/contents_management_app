@@ -28,6 +28,6 @@ class GeneralController < ApplicationController
   private
 
   def post_params
-    params.permit(:body, :user_id)
+    params.permit(:body, :user_id, :video)
   end
 end
