@@ -6,6 +6,7 @@ User.seed do |s|
   s.email = 'hiroaki5141616@me.com'
   s.password = 'password123'
   s.role = 0
+  s.organization_id = 1
 end
 
 User.seed do |s|
@@ -14,6 +15,7 @@ User.seed do |s|
   s.email = 'hoge@example.com'
   s.password = 'password123'
   s.role = 1
+  s.organization_id = 1
 end
 
 User.seed do |s|
@@ -22,6 +24,7 @@ User.seed do |s|
   s.email = 'hoge2@example.com'
   s.password = 'password123'
   s.role = 2
+  s.organization_id = 1
 end
 
 User.seed do |s|
@@ -30,6 +33,7 @@ User.seed do |s|
   s.email = 'hoge3@example.com'
   s.password = 'password123'
   s.role = 2
+  s.organization_id = 1
 end
 
 User.seed do |s|
@@ -38,6 +42,7 @@ User.seed do |s|
   s.email = 'hoge4@example.com'
   s.password = 'password123'
   s.role = 2
+  s.organization_id = 1
 end
 
 # 以下、id=6からid=30までのユーザを追加
@@ -48,5 +53,6 @@ end
     s.email = "hoge#{id}@example.com"
     s.password = 'password123'
     s.role = 2
+    s.organization_id = 1
   end
 end
