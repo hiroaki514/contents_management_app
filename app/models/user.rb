@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validate :file_size, :file_extension
   has_one_attached :icon
   has_many :posts, dependent: :destroy
+  belongs_to :organization
 
   private
 
