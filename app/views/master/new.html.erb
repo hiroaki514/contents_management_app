@@ -48,8 +48,8 @@
   </div>
 
   <div class="field">
-  <p>所属組織</p>
-  <%= 
+    <p>所属組織</p>
+    <%= f.select :organization_id, options_from_collection_for_select(Organization.all, :id, :name) %>
   </div>
 
   <div class="field">
