@@ -26,6 +26,6 @@ class MasterController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :role, :icon)
+    params.require(:user).permit(:name, :email, :password, :role, :icon, :organization_id)
   end
 end
