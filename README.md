@@ -130,6 +130,7 @@ current_page?(URL)でページの判別ができる
   user.post
 ```
 
+
 # テンプレート
 ```
 $
