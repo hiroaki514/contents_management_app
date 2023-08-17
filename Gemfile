@@ -26,7 +26,7 @@ group :test do
 end
 
 gem 'bootsnap', require: false
-gem 'bootstrap', '~> 5.2.3'
+gem 'bootstrap', '~> 5.3.1'
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 gem 'devise'
 gem 'devise-i18n'
