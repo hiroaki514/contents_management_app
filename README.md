@@ -130,6 +130,15 @@ current_page?(URL)でページの判別ができる
   user.post
 ```
 
+# ルーティングの設定
+```
+7つのアクションを全て定義する
+ resources :organization
+
+resourcesで作られるアクションの制限
+  resources :organization, only: %i[new create]
+  resources :organization, except: %i[index show edit update destroy]
+```
 
 # テンプレート
 ```

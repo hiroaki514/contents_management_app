@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :admin
   resources :general
 
+  resources :organization, only: %i[new create]
+
   get 'hello', to: 'application#hello'
 end
