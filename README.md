@@ -140,6 +140,23 @@ resourcesで作られるアクションの制限
   resources :organization, except: %i[index show edit update destroy]
 ```
 
+# モデル名とコントローラー名
+```
+モデル名: Organization
+テーブル名: organizations
+コントローラー名: organizations_controller
+```
+
+# ローカル変数とインスタンス変数
+```
+ローカル変数: user
+　→同一ファイル内でしか使えない変数
+
+インスタンス変数: @user
+　→同一ファイル外でも使える変数
+(クラス変数: @@user  ※基本使わない)
+```
+
 # テンプレート
 ```
 $
