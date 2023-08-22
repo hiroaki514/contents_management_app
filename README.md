@@ -130,6 +130,52 @@ current_page?(URL)でページの判別ができる
   user.post
 ```
 
+# ルーティングの設定
+```
+7つのアクションを全て定義する
+ resources :organization
+
+resourcesで作られるアクションの制限
+  resources :organization, only: %i[new create]
+  resources :organization, except: %i[index show edit update destroy]
+```
+
+# モデル名とコントローラー名
+```
+モデル名: Organization
+テーブル名: organizations
+コントローラー名: organizations_controller
+```
+
+# ローカル変数とインスタンス変数
+```
+ローカル変数: user
+　→同一ファイル内でしか使えない変数
+
+インスタンス変数: @user
+　→同一ファイル外でも使える変数
+(クラス変数: @@user  ※基本使わない)
+```
+
+# バリデーションの表示方法
+```
+1. モデルにバリデーションを定義
+　→例:validates :name, presence: true
+2. ビューファイルにエラーメッセージを表示する記述を追加
+ →例:  <% if @organization.errors.any? %>
+      <div style="color: red">
+        <h2>エラーがあります</h2>
+        <ul>
+          <% @organization.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+3. コントローラでvalid?、invalid?、saveメソッドを実行してバリデーションを判定
+ →    if @organization.valid?
+      @organization.save
+```
 
 # テンプレート
 ```
