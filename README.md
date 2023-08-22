@@ -157,6 +157,26 @@ resourcesで作られるアクションの制限
 (クラス変数: @@user  ※基本使わない)
 ```
 
+# バリデーションの表示方法
+```
+1. モデルにバリデーションを定義
+　→例:validates :name, presence: true
+2. ビューファイルにエラーメッセージを表示する記述を追加
+ →例:  <% if @organization.errors.any? %>
+      <div style="color: red">
+        <h2>エラーがあります</h2>
+        <ul>
+          <% @organization.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+3. コントローラでvalid?、invalid?、saveメソッドを実行してバリデーションを判定
+ →    if @organization.valid?
+      @organization.save
+```
+
 # テンプレート
 ```
 $
