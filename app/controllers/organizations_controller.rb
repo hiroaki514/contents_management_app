@@ -1,5 +1,13 @@
 class OrganizationsController < ApplicationController
 
+  def index
+    @organizations = Organization.page(params[:page]).per(10)
+  end
+
+  def show 
+
+  end
+
   def new
     @organization = Organization.new
   end
