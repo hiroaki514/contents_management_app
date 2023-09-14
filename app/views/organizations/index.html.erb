@@ -1,0 +1,22 @@
+組織一覧画面
+
+<table border='1' class="table">
+  <thead>
+    <tr>
+      <th>組織名</th>
+      <th>所属人数</th>
+      <th>作成日時</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @organizations.find_each do |org| %>
+      <tr>
+        <td><%= org.name %></td>
+        <td><%= org.users.count %></td>
+        <td><%= l org.created_at, format: :only_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
