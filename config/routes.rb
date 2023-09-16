@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :admin
   resources :general
 
-  resources :organizations, only: %i[show index new create]
+  resources :organizations, except: :destroy
 
   get 'hello', to: 'application#hello'
 end
