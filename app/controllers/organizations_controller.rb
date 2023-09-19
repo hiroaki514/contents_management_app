@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: %i[edit update]
+  before_action :set_organization, only: %i[show edit update]
 
   def index
     @organizations = Organization.page(params[:page]).per(10)
