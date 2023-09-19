@@ -27,5 +27,27 @@ RSpec.describe 'Organizations', type: :system do
     end
   end
 
+  describe '組織詳細' do
+    let(:organization) { create(:organization, name: "テスト組織2") }
+    let!(:user1) { create(:user, name: "Aさん", email: "test1@example.com", organization: organization) }
+    let!(:user2) { create(:user, name: "Bさん", email: "test2@example.com", organization: organization) }
+    
+    before do
+      visit organization_path(organization)
+    end
+
+    it '組織詳細ページに遷移すること' do
+      expect(page).to have_content('テスト組織2の所属ユーザー')
+    end
+
+    it '所属しているユーザーが表示されること' do
+      expect(page).to have_content('Aさん')
+      expect(page).to have_content('Bさん')
+      expect(page).to have_content('test1@example.com')
+      expect(page).to have_content('test2@example.com')
+    end
+
+  end
+
 
 end
