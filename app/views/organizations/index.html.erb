@@ -7,6 +7,7 @@
       <th>所属人数</th>
       <th>作成日時</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +16,10 @@
         <td><%= org.name %></td>
         <td><%= org.users.count %></td>
         <td><%= l org.created_at, format: :only_date %></td>
-        <td><%= link_to "編集", edit_organization_path(org) %></td>
+        <td>
+          <%= link_to "編集", edit_organization_path(org) %>
+          <%= link_to "詳細", organization_path(org) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
