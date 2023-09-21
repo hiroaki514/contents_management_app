@@ -38,12 +38,10 @@
               ユーザ管理
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="<%= users_path %>">一覧表示</a></li>
               <% if current_user.master? %>
-                <li><a class="dropdown-item" href="<%= new_master_path %>">新規ユーザ登録</a></li>
-              <% elsif current_user.admin? %>
-                <li><a class="dropdown-item" href="<%= new_admin_path %>">新規ユーザ登録</a></li>
+                <li><a class="dropdown-item" href="<%= new_user_path %>">新規ユーザ登録</a></li>
               <% end %>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>

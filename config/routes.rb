@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :master
   resources :admin
   resources :general
-
+  resources :users
+  
   resources :organizations, except: :destroy
 
   get 'hello', to: 'application#hello'
