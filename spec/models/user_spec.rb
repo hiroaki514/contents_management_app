@@ -88,7 +88,7 @@ RSpec.describe User, type: :model do
       context '.txtファイルの場合' do
         let(:txt_file) { Rails.root.join('spec/fixtures/sample.txt') }
 
-        it '不正なユーザになること' do
+        it '不正なユーザーになること' do
           user = build(:user)
           user.icon = fixture_file_upload(txt_file)
           user.valid?

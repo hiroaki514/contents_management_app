@@ -49,7 +49,7 @@ end
 (6..30).each do |id|
   User.seed do |s|
     s.id = id
-    s.name = "ユーザ#{id}"
+    s.name = "ユーザー#{id}"
     s.email = "hoge#{id}@example.com"
     s.password = 'password123'
     s.role = 2

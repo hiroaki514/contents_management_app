@@ -29,18 +29,18 @@
         </li>
         <li class="nav-item">
           <% if current_page?(master_index_path) || current_page?(admin_index_path) %>
-            <a class="nav-link text-white" href="<%= general_index_path %>">一般ユーザ画面</a>
+            <a class="nav-link text-white" href="<%= general_index_path %>">一般ユーザー画面</a>
           <% end %>
         </li>
         <% if !current_page?(general_index_path) %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              ユーザ管理
+              ユーザー管理
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="<%= users_path %>">一覧表示</a></li>
+              <li><a class="dropdown-item" href="<%= users_path %>">ユーザー一覧</a></li>
               <% if current_user.master? %>
-                <li><a class="dropdown-item" href="<%= new_user_path %>">新規ユーザ登録</a></li>
+                <li><a class="dropdown-item" href="<%= new_user_path %>">新規ユーザー登録</a></li>
               <% end %>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>

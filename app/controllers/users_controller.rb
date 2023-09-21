@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to users_path
-      flash[:success] = 'ユーザを登録しました'
+      flash[:success] = 'ユーザーを登録しました'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to master_index_path
-      flash[:success] = 'ユーザを更新しました'
+      flash[:success] = 'ユーザーを更新しました'
     else
       render :edit
     end

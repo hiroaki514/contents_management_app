@@ -45,11 +45,11 @@ User.seed do |s|
   s.organization_id = 1
 end
 
-# 以下、id=6からid=30までのユーザを追加
+# 以下、id=6からid=30までのユーザーを追加
 (6..30).each do |id|
   User.seed do |s|
     s.id = id
-    s.name = "ユーザ#{id}"
+    s.name = "ユーザー#{id}"
     s.email = "hoge#{id}@example.com"
     s.password = 'password123'
     s.role = 2

@@ -78,14 +78,14 @@ RSpec.describe 'Users', type: :system do
           end
 
           it '一般ユーザ画面のリンクが表示されていること' do
-            expect(page).to have_link('一般ユーザ画面')
+            expect(page).to have_link('一般ユーザー画面')
           end
 
           it 'マスター画面のリンクが表示されていないこと' do
             expect(page).not_to have_link('マスター画面')
           end
 
-          it 'ユーザが表示されること' do
+          it 'ユーザーが表示されること' do
             expect(page).to have_content('穂夏太郎')
             expect(page).to have_content('hiroaki5141616@me.com')
             expect(page).to have_content('マスター')
@@ -97,8 +97,8 @@ RSpec.describe 'Users', type: :system do
             click_on '管理者画面'
           end
 
-          it '一般ユーザ画面のリンクが表示されていること' do
-            expect(page).to have_link('一般ユーザ画面')
+          it '一般ユーザー画面のリンクが表示されていること' do
+            expect(page).to have_link('一般ユーザー画面')
           end
 
           it '管理者画面のリンクが表示されていないこと' do
@@ -136,14 +136,14 @@ RSpec.describe 'Users', type: :system do
           end
 
           it '一般ユーザ画面のリンクが表示されていること' do
-            expect(page).to have_link('一般ユーザ画面')
+            expect(page).to have_link('一般ユーザー画面')
           end
 
           it '管理者画面のリンクが表示されていないこと' do
             expect(page).not_to have_link('管理者画面')
           end
 
-          it 'ユーザが表示されること' do
+          it 'ユーザーが表示されること' do
             expect(page).to have_content('穂夏次郎')
             expect(page).to have_content('hoge@example.com')
             expect(page).to have_content('管理者')
@@ -151,7 +151,7 @@ RSpec.describe 'Users', type: :system do
         end
       end
 
-      context '一般ユーザ権限の場合' do
+      context '一般ユーザー権限の場合' do
         before do
           visit new_user_session_path
           fill_in 'user[email]', with: 'hoge2@example.com'
