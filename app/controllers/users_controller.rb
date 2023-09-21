@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to master_index_path
+      redirect_to users_path
       flash[:success] = 'ユーザーを更新しました'
     else
       render :edit

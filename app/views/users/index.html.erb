@@ -1,4 +1,4 @@
-users index
+<h2>ユーザー一覧</h2>
 
 <table border='1' class="table">
   <thead>
@@ -17,7 +17,7 @@ users index
         <td><%= user.email %></td>
         <td><%= user.role_i18n %></td>
         <td><%= user.organization.name %></td>
-        <td><%= link_to "編集", edit_master_path(user) %></td>
+        <td><%= link_to "編集", edit_user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
