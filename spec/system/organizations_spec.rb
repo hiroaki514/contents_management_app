@@ -11,11 +11,11 @@ RSpec.describe 'Organizations', type: :system do
   end
 
   describe '組織一覧機能' do
-    let(:organization) { create(:organization, name: "テスト組織1") }
+    let(:organization) { create(:organization, name: 'テスト組織1') }
 
     before do
-      create(:user, name: "田中", email: "test1@example.com", organization: organization)
-      create(:user, name: "中村",  email: "test2@example.com", organization: organization)
+      create(:user, name: '田中', email: 'test1@example.com', organization:)
+      create(:user, name: '中村', email: 'test2@example.com', organization:)
     end
 
     it '組織一覧ページが表示されること' do
@@ -28,10 +28,10 @@ RSpec.describe 'Organizations', type: :system do
   end
 
   describe '組織詳細' do
-    let(:organization) { create(:organization, name: "テスト組織2") }
-    let!(:user1) { create(:user, name: "Aさん", email: "test1@example.com", organization: organization) }
-    let!(:user2) { create(:user, name: "Bさん", email: "test2@example.com", organization: organization) }
-    
+    let(:organization) { create(:organization, name: 'テスト組織2') }
+    let!(:user1) { create(:user, name: 'Aさん', email: 'test1@example.com', organization:) }
+    let!(:user2) { create(:user, name: 'Bさん', email: 'test2@example.com', organization:) }
+
     before do
       visit organization_path(organization)
     end
@@ -46,7 +46,6 @@ RSpec.describe 'Organizations', type: :system do
       expect(page).to have_content('test1@example.com')
       expect(page).to have_content('test2@example.com')
     end
-
   end
 
   describe '組織登録' do
@@ -57,7 +56,7 @@ RSpec.describe 'Organizations', type: :system do
     end
 
     context '正常系' do
-      let(:name){ 'テスト組織' }
+      let(:name) { 'テスト組織' }
 
       it '新規組織登録ができること' do
         expect(page).to have_content('テスト組織')
@@ -66,7 +65,7 @@ RSpec.describe 'Organizations', type: :system do
     end
 
     context '異常系' do
-      let(:name){ nil }
+      let(:name) { nil }
 
       it '新規組織登録が失敗すること' do
         expect(page).not_to have_content('テスト組織')
@@ -74,6 +73,4 @@ RSpec.describe 'Organizations', type: :system do
       end
     end
   end
-
-
 end

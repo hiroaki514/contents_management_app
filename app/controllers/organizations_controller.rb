@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: %i[show edit update]
 
@@ -11,6 +13,8 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new
   end
 
+  def edit; end
+
   def create
     @organization = Organization.new(organization_params)
     if @organization.valid?
@@ -23,8 +27,6 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
     if @organization.update(organization_params)
       redirect_to organizations_path
@@ -33,7 +35,6 @@ class OrganizationsController < ApplicationController
       render :edit
     end
   end
-
 
   private
 
@@ -44,6 +45,4 @@ class OrganizationsController < ApplicationController
   def organization_params
     params.require(:organization).permit(:name)
   end
-
-
 end
