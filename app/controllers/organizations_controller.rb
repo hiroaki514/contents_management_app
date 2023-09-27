@@ -15,7 +15,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     if @organization.valid?
       @organization.save
-      redirect_to root_path
+      redirect_to organizations_path
       flash[:success] = 'ユーザを登録しました'
     else
       render :new

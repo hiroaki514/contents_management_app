@@ -27,5 +27,53 @@ RSpec.describe 'Organizations', type: :system do
     end
   end
 
+  describe '組織詳細' do
+    let(:organization) { create(:organization, name: "テスト組織2") }
+    let!(:user1) { create(:user, name: "Aさん", email: "test1@example.com", organization: organization) }
+    let!(:user2) { create(:user, name: "Bさん", email: "test2@example.com", organization: organization) }
+    
+    before do
+      visit organization_path(organization)
+    end
+
+    it '組織詳細ページに遷移すること' do
+      expect(page).to have_content('テスト組織2の所属ユーザー')
+    end
+
+    it '所属しているユーザーが表示されること' do
+      expect(page).to have_content('Aさん')
+      expect(page).to have_content('Bさん')
+      expect(page).to have_content('test1@example.com')
+      expect(page).to have_content('test2@example.com')
+    end
+
+  end
+
+  describe '組織登録' do
+    before do
+      visit new_organization_path
+      fill_in 'organization[name]', with: name
+      click_on '登録'
+    end
+
+    context '正常系' do
+      let(:name){ 'テスト組織' }
+
+      it '新規組織登録ができること' do
+        expect(page).to have_content('テスト組織')
+        expect(Organization.count).to eq(2)
+      end
+    end
+
+    context '異常系' do
+      let(:name){ nil }
+
+      it '新規組織登録が失敗すること' do
+        expect(page).not_to have_content('テスト組織')
+        expect(Organization.count).not_to eq(2)
+      end
+    end
+  end
+
 
 end
