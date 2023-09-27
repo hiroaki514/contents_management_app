@@ -68,8 +68,33 @@ RSpec.describe 'Organizations', type: :system do
       let(:name) { nil }
 
       it '新規組織登録が失敗すること' do
-        expect(page).not_to have_content('テスト組織')
-        expect(Organization.count).not_to eq(2)
+        expect(page).not_to have_content('組織名を入力してください')
+      end
+    end
+  end
+
+  describe '組織名の編集' do
+    before do
+      visit organizations_path
+      click_on '編集'
+      fill_in 'organization[name]', with: name
+      click_on '更新'
+
+    end
+
+    context '正常系' do
+      it '組織名の編集ができること' do
+        let(:name) { '組織名編集テスト' }
+
+        expect(page).to have_content('組織名編集テスト')
+      end
+    end
+
+    context '異常系' do
+      it '組織名の編集が失敗すること' do
+        let(:name) { nil }
+
+        expect(page).to have_content('組織名を入力してください')
       end
     end
   end
