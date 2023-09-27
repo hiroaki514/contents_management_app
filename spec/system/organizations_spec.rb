@@ -49,5 +49,31 @@ RSpec.describe 'Organizations', type: :system do
 
   end
 
+  describe '組織登録' do
+    before do
+      visit new_organization_path
+      fill_in 'organization[name]', with: name
+      click_on '登録'
+    end
+
+    context '正常系' do
+      let(:name){ 'テスト組織' }
+
+      it '新規組織登録ができること' do
+        expect(page).to have_content('テスト組織')
+        expect(Organization.count).to eq(2)
+      end
+    end
+
+    context '異常系' do
+      let(:name){ nil }
+
+      it '新規組織登録が失敗すること' do
+        expect(page).not_to have_content('テスト組織')
+        expect(Organization.count).not_to eq(2)
+      end
+    end
+  end
+
 
 end
