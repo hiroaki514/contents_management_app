@@ -1,0 +1,25 @@
+
+
+<%= form_with(model: @organization, url: organizations_path, method: :post) do |f| %>
+  <%# エラーメッセージを出す記述 %>
+  <% if @organization.errors.any? %>
+      <div style="color: red">
+        <h2>エラーがあります</h2>
+        <ul>
+          <% @organization.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録" %>
+  </div>
+
+<% end %>

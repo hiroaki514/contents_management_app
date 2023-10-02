@@ -11,5 +11,7 @@ FactoryBot.define do
       file = Rails.root.join('spec/fixtures/sample.jpeg').open
       user.icon.attach(io: file, filename: 'sample.jpeg', content_type: 'image/jpeg')
     end
+
+    organization
   end
 end

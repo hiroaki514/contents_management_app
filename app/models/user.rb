@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validate :file_size, :file_extension
   has_one_attached :icon
   has_many :posts, dependent: :destroy
+  belongs_to :organization
 
   private
 
@@ -23,6 +24,8 @@ class User < ApplicationRecord
   end
 
   def file_extension
+    return unless icon.attached?
+
     extension = ['image/png', 'image/jpg', 'image/jpeg']
     errors.add(:icon, 'はJPEGまたはPNG形式のファイルをアップロードしてください') unless icon.content_type.in?(extension)
   end

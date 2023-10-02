@@ -10,6 +10,8 @@ ja:
         admin: 管理者
         general: 一般
         icon: アイコン画像
+      organization:
+        name: 組織名
     errors:
       models:
         user:
