@@ -29,8 +29,8 @@ RSpec.describe 'Organizations', type: :system do
 
   describe '組織詳細' do
     let(:organization) { create(:organization, name: 'テスト組織2') }
-    let!(:user1) { create(:user, name: 'Aさん', email: 'test1@example.com', organization:) }
-    let!(:user2) { create(:user, name: 'Bさん', email: 'test2@example.com', organization:) }
+    let!(:user1) { create(:user, name: 'Aさん', email: 'test1@example.com', organization: organization) }
+    let!(:user2) { create(:user, name: 'Bさん', email: 'test2@example.com', organization: organization) }
 
     before do
       visit organization_path(organization)
@@ -83,17 +83,17 @@ RSpec.describe 'Organizations', type: :system do
     end
 
     context '正常系' do
-      it '組織名の編集ができること' do
-        let(:name) { '組織名編集テスト' }
+      let(:name) { '組織名編集テスト' }
 
+      it '組織名の編集ができること' do
         expect(page).to have_content('組織名編集テスト')
       end
     end
 
     context '異常系' do
-      it '組織名の編集が失敗すること' do
-        let(:name) { nil }
+      let(:name) { nil }
 
+      it '組織名の編集が失敗すること' do
         expect(page).to have_content('組織名を入力してください')
       end
     end
