@@ -1,3 +1,5 @@
+
+
 組織一覧画面
 
 <table border='1' class="table">
@@ -19,6 +21,7 @@
         <td>
           <%= link_to "編集", edit_organization_path(org) %>
           <%= link_to "詳細", organization_path(org) %>
+          <%= button_to '削除', organization_path(org), method: :delete, data: { confirm: "削除しますか？" }, class: 'btn btn-link delete_organization_button' %>
         </td>
       </tr>
     <% end %>

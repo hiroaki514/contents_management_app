@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: %i[show edit update]
+  before_action :set_organization, only: %i[show edit update destroy]
 
   def index
     @organizations = Organization.page(params[:page]).per(10)
@@ -34,6 +34,15 @@ class OrganizationsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @organization.destroy
+      flash[:success] = 'ユーザを削除しました'
+    else
+      flash[:alert] = 'ユーザの削除に失敗しました'
+    end
+    redirect_to organizations_path
   end
 
   private
