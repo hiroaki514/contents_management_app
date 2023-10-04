@@ -18,11 +18,9 @@
         <td><%= org.name %></td>
         <td><%= org.users.count %></td>
         <td><%= l org.created_at, format: :only_date %></td>
-        <td>
-          <%= link_to "編集", edit_organization_path(org) %>
-          <%= link_to "詳細", organization_path(org) %>
-          <%= button_to '削除', organization_path(org), method: :delete, data: { confirm: "削除しますか？" }, class: 'btn btn-link delete_organization_button' %>
-        </td>
+          <td><%= link_to "編集", edit_organization_path(org) %></td>
+          <td><%= link_to "詳細", organization_path(org) %></td>
+          <td><%= button_to '削除', organization_path(org), method: :delete, data: { confirm: "削除しますか？" }, class: 'btn btn-link delete_organization_button' %></td>
       </tr>
     <% end %>
   </tbody>

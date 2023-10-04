@@ -20,10 +20,10 @@ class OrganizationsController < ApplicationController
     if @organization.valid?
       @organization.save
       redirect_to organizations_path
-      flash[:success] = 'ユーザを登録しました'
+      flash[:success] = '組織を登録しました'
     else
       render :new
-      flash.now[:alert] = 'ユーザ登録に失敗しました'
+      flash.now[:alert] = '組織の登録に失敗しました'
     end
   end
 
@@ -38,9 +38,9 @@ class OrganizationsController < ApplicationController
 
   def destroy
     if @organization.destroy
-      flash[:success] = 'ユーザを削除しました'
+      flash[:success] = '組織を削除しました'
     else
-      flash[:alert] = 'ユーザの削除に失敗しました'
+      flash[:alert] = '組織の削除に失敗しました'
     end
     redirect_to organizations_path
   end
