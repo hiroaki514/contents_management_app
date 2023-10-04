@@ -1,27 +1,2 @@
 マスター画面
 
-<table border='1' class="table">
-  <thead>
-    <tr>
-      <th>名前</th>
-      <th>メールアドレス</th>
-      <th>権限</th>
-      <th>所属組織</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.find_each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.role_i18n %></td>
-        <td><%= user.organization.name %></td>
-        <td><%= link_to "編集", edit_master_path(user) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div class="pagination justify-content-end">
-  <%= paginate @users, theme: 'bootstrap-5' %>
-</div>

@@ -1,8 +1,8 @@
-新規ユーザ登録(管理者権限)
+<h2>新規ユーザ登録</h2>
 
 
 
-<%= form_with(model: @user, url: master_index_path, method: :post) do |f| %>
+<%= form_with(model: @user, url: members_path, method: :post) do |f| %>
   <%# エラーメッセージを出す記述 %>
   <% if @user.errors.any? %>
       <div style="color: red">
@@ -39,14 +39,29 @@
 
   <div class="field">
     <p>権限</p>
+    <%# マスター権限は新規登録を実行するユーザがマスター権限のアカウントであること %>
+    <% if current_user.master? %>
+      <%= f.label :master %>
+      <%= f.radio_button :role, :master %>
+    <% end %>
     <%= f.label :admin %>
     <%= f.radio_button :role, :admin %>
     <%= f.label :general %>
     <%= f.radio_button :role, :general %>
   </div>
 
+  <div class="field">
+    <p>所属組織</p>
+    <%= f.select :organization_id, options_from_collection_for_select(Organization.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :icon %>
+    <%= f.file_field :icon, direct_upload: true %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録" %>
   </div>
 
 <% end %>
