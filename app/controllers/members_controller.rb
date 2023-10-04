@@ -1,5 +1,6 @@
-class MembersController < ApplicationController
+# frozen_string_literal: true
 
+class MembersController < ApplicationController
   def index
     if current_user.master?
       @users = User.page(params[:page]).per(10)
@@ -45,7 +46,4 @@ class MembersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :role, :icon, :organization_id)
   end
-
-
-
 end
