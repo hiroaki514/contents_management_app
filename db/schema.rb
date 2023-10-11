@@ -64,10 +64,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_212443) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at", precision: nil
+    t.datetime "discarded_at", comment: "削除日時"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organization_id", null: false
-    t.datetime "discarded_at", comment: "削除日時"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["organization_id"], name: "index_users_on_organization_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
