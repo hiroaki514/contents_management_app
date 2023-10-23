@@ -38,6 +38,7 @@ class OrganizationsController < ApplicationController
 
   def destroy
     if @organization.destroy
+      @organization.update(discarded_at: Time.zone.now)
       flash[:success] = '組織を削除しました'
     else
       flash[:alert] = '組織の削除に失敗しました'
