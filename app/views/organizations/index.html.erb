@@ -1,3 +1,8 @@
+<% content_for :organization_specific_styles do %>
+  <%= stylesheet_link_tag 'organization' %>
+<% end %>
+
+
 組織一覧画面
 
 <table border='1' class="table">
@@ -8,6 +13,7 @@
       <th>作成日時</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,10 +22,9 @@
         <td><%= org.name %></td>
         <td><%= org.users.count %></td>
         <td><%= l org.created_at, format: :only_date %></td>
-        <td>
-          <%= link_to "編集", edit_organization_path(org) %>
-          <%= link_to "詳細", organization_path(org) %>
-        </td>
+        <td><%= link_to "編集", edit_organization_path(org) %></td>
+        <td><%= link_to "詳細", organization_path(org) %></td>
+        <td><%= button_to '削除', organization_path(org), method: :delete, data: { turbo_confirm: "本当に削除しますか？"}, class: 'btn btn-link delete_organization_button' %></td>
       </tr>
     <% end %>
   </tbody>
