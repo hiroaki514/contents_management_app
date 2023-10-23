@@ -1,22 +1,16 @@
+<%= stylesheet_link_tag 'header', 'data-turbo-track': 'reload' %>
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: gray;">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="#">ContentsManagementApp</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <%
-=begin%>
- <span class="navbar-toggler-icon"></span> 
-<%
-=end%>
-    </button>
+
+        <!-- ボタンを画像に置き換える -->
+    <a type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <img src="/assets/hamburger_icon.png" alt="Toggle Navigation" class="navbar-toggler">
+    </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <%
-=begin%>
- <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-        </li> 
-<%
-=end%>
+
         <li class="nav-item">
           <% if current_user.master? && !current_page?(master_index_path) %>
             <a class="nav-link text-white" href="<%= master_index_path %>">マスター画面</a>
@@ -38,12 +32,8 @@
               ユーザ管理
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <% if current_user.master? %>
-                <li><a class="dropdown-item" href="<%= new_master_path %>">新規ユーザ登録</a></li>
-              <% elsif current_user.admin? %>
-                <li><a class="dropdown-item" href="<%= new_admin_path %>">新規ユーザ登録</a></li>
-              <% end %>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="<%= members_path %>">ユーザ一覧</a></li>
+                <li><a class="dropdown-item" href="<%= new_member_path %>">新規ユーザ登録</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>

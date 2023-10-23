@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :master
   resources :admin
   resources :general
-
   resources :organizations
+  resources :members
 
   get 'hello', to: 'application#hello'
 end
