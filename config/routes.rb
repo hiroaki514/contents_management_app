@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :general
   resources :organizations
   resources :members
+  resources :logs, only: %i[index]
 
   get 'hello', to: 'application#hello'
 end
