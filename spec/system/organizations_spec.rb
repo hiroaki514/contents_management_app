@@ -68,7 +68,7 @@ RSpec.describe 'Organizations', type: :system do
       let(:name) { nil }
 
       it '新規組織登録が失敗すること' do
-        expect(page).not_to have_content('組織名を入力してください')
+        expect(page).to have_content('組織名を入力してください')
       end
     end
   end
