@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: %i[show edit update]
+  before_action :set_organization, only: %i[show edit update destroy]
 
   def index
     @organizations = Organization.page(params[:page]).per(10)
@@ -20,10 +20,10 @@ class OrganizationsController < ApplicationController
     if @organization.valid?
       @organization.save
       redirect_to organizations_path
-      flash[:success] = 'ユーザを登録しました'
+      flash[:success] = '組織を登録しました'
     else
       render :new
-      flash.now[:alert] = 'ユーザ登録に失敗しました'
+      flash.now[:alert] = '組織の登録に失敗しました'
     end
   end
 
@@ -34,6 +34,15 @@ class OrganizationsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @organization.update(discarded_at: Time.zone.now)
+      flash[:success] = '組織を削除しました'
+    else
+      flash[:alert] = '組織の削除に失敗しました'
+    end
+    redirect_to organizations_path
   end
 
   private

@@ -177,6 +177,21 @@ resourcesで作られるアクションの制限
       @organization.save
 ```
 
+# 論理削除(SoftDelete)と物理削除(Physical_Delete)
+```
+「論理削除」
+ ・データそのものはDBに残る
+ ・論理削除の判定フラグがONになる
+ 例：discarded_atが削除された判定フラグ
+「物理削除」
+ ・データそのものを削除、DBには残らない
+ ・destroyメソッドを使用する(def destroyのようなアクションではない)
+
+「default_scope」※organizationモデルに定義している
+ ・モデルに常に適応する条件の記述
+
+```
+
 # テンプレート
 ```
 $
