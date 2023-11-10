@@ -8,17 +8,23 @@
       <th>権限</th>
       <th>所属組織</th>
       <th></th>
+      <th></th>
+
     </tr>
   </thead>
   <tbody>
     <% @users.find_each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.role_i18n %></td>
-        <td><%= user.organization.name %></td>
-        <td><%= link_to "編集", edit_member_path(user) %></td>
-      </tr>
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role_i18n %></td>
+  <td><%= user.organization.name %></td>
+  <td><%= link_to "編集", edit_member_path(user) %></td>
+  <td>
+    <%= button_to "削除", member_path(user), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: "btn btn-link" %>
+  </td>
+</tr>
+
     <% end %>
   </tbody>
 </table>
