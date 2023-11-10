@@ -11,10 +11,9 @@ Rails.application.routes.draw do
   resources :master
   resources :admin
   resources :general
-
+  resources :organizations
   resources :members
-
-  resources :organizations, except: :destroy
+  resources :logs, only: %i[index]
 
   get 'hello', to: 'application#hello'
 end
