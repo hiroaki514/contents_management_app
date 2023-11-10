@@ -108,5 +108,4 @@ RSpec.describe 'Organizations', type: :system do
       expect(page).not_to have_content('組織01')
     end
   end
-
 end
