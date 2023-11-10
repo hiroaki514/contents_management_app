@@ -21,7 +21,7 @@
   <td><%= user.organization.name %></td>
   <td><%= link_to "編集", edit_member_path(user) %></td>
   <td>
-    <%= button_to "削除", destroy_user_session_path(user), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: "btn btn-link" %>
+    <%= button_to "削除", member_path(user), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: "btn btn-link" %>
   </td>
 </tr>
 
