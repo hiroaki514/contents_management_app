@@ -97,4 +97,16 @@ RSpec.describe 'Organizations', type: :system do
       end
     end
   end
+
+  describe '組織の削除' do
+    before do
+      visit organizations_path
+    end
+
+    it '組織が論理削除されること' do
+      click_on '削除'
+      expect(page).not_to have_content('組織01')
+    end
+  end
+
 end
