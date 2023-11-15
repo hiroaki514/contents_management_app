@@ -44,5 +44,4 @@ Metrics/BlockLength:
     - config/routes.rb
 
 Rails/CreateTableWithTimestamps:
-  Exclude:
-    - db/migrate/*.rb
+  Enabled: false
