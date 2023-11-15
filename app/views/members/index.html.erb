@@ -1,3 +1,7 @@
+<% content_for :member_specific_styles do %>
+  <%= stylesheet_link_tag 'member' %>
+<% end %>
+
 <h3>ユーザ一覧</h3>
 
 <table border='1' class="table">
@@ -20,9 +24,7 @@
   <td><%= user.role_i18n %></td>
   <td><%= user.organization.name %></td>
   <td><%= link_to "編集", edit_member_path(user) %></td>
-  <td>
-    <%= button_to "削除", member_path(user), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: "btn btn-link" %>
-  </td>
+  <td><%= button_to "削除", member_path(user), method: :delete, data: { turbo_confirm: "本当に削除しますか？"}, class: 'btn btn-link delete_member_button' %></td>
 </tr>
 
     <% end %>

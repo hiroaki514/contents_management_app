@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   enum role: { master: 0, admin: 1, general: 2 }
 
+  # 常にuserモデルに適応される条件を記述
+  default_scope { where(discarded_at: nil) }
+
   validates :name, :role, presence: true
   validate :file_size, :file_extension
   has_one_attached :icon
