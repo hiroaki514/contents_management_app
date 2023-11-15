@@ -9,10 +9,11 @@
     </tr>
   </thead>
   <tbody>
+    <%# 組織名とユーザ名がどちらも name カラムのため log.name としている %>
     <% @logs.each do |log| %>
       <tr>
         <td><%= "#{log.is_a?(Organization) ? '組織' : log.is_a?(User) ? 'ユーザ' : 'Unknown'} を削除しました" %></td>
-        <td><%= log.name %></td>
+        <td><%= log.name %></td> 
         <td><%= l log.discarded_at, format: :default %></td>
       </tr>
     <% end %>
