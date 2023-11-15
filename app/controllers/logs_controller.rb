@@ -2,7 +2,7 @@
 
 class LogsController < ApplicationController
   def index
-    # case ステートメントでログのタイプ毎に分岐
+    # case でログのタイプ毎に分岐
     case params[:log_type]
     when 'organization'
       @logs = fetch_logs(Organization)
