@@ -31,7 +31,6 @@ class MembersController < ApplicationController
     end
   end
 
-
   def update
     if @user.update(user_params)
       redirect_to members_path
