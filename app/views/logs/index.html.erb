@@ -1,6 +1,6 @@
 <h3>ログ</h3>
 
-<%= form_tag(logs_path, method: 'get') do %>
+<%= form_tag(logs_path) do %>
   <%= select_tag(:log_type, options_for_select([['すべて', 'all'], ['組織', 'organization'], ['ユーザ', 'user']], params[:log_type] || 'all')) %>
   <%= submit_tag('表示') %>
 <% end %>
