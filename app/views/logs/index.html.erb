@@ -1,5 +1,10 @@
 <h3>ログ</h3>
 
+<%= form_tag(logs_path, method: 'get') do %>
+  <%= select_tag(:log_type, options_for_select([['すべて', 'all'], ['組織', 'organization'], ['ユーザ', 'user']], params[:log_type] || 'all')) %>
+  <%= submit_tag('表示') %>
+<% end %>
+
 <table border='1' class="table overflow-scroll">
   <thead>
     <tr>
@@ -10,11 +15,13 @@
   </thead>
   <tbody>
     <% @logs.each do |log| %>
-      <tr>
-        <td><%= "#{log.is_a?(Organization) ? '組織' : log.is_a?(User) ? 'ユーザ' : 'Unknown'} を削除しました" %></td>
-        <td><%= log.name %></td>
-        <td><%= l log.discarded_at, format: :default %></td>
-      </tr>
+      <% if params[:log_type].blank? || params[:log_type] == 'all' || (params[:log_type] == 'organization' && log.is_a?(Organization)) || (params[:log_type] == 'user' && log.is_a?(User)) %>
+        <tr>
+          <td><%= "#{log.is_a?(Organization) ? '組織' : log.is_a?(User) ? 'ユーザ' : 'Unknown'} を削除しました" %></td>
+          <td><%= log.name %></td>
+          <td><%= l log.discarded_at, format: :default %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
