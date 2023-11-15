@@ -21,13 +21,16 @@ class MembersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
-      redirect_to members_path
+      @user.update(created_user_id: current_user.id)
       flash[:success] = 'ユーザを登録しました'
+      redirect_to members_path
     else
       render :new
     end
   end
+
 
   def update
     if @user.update(user_params)
