@@ -10,14 +10,17 @@
     <tr>
       <th>操作</th>
       <th>対象名</th>
-      <th>削除日時</th>
+      <th>実施日時</th>
     </tr>
   </thead>
   <tbody>
     <% @logs.each do |log| %>
       <% if params[:log_type].blank? || params[:log_type] == 'all' || (params[:log_type] == 'organization' && log.is_a?(Organization)) || (params[:log_type] == 'user' && log.is_a?(User)) %>
         <tr>
-          <td><%= "#{log.is_a?(Organization) ? '組織' : log.is_a?(User) ? 'ユーザ' : 'Unknown'} を削除しました" %></td>
+          <td>
+            <%= "#{log.is_a?(Organization) ? '組織' : log.is_a?(User) ? 'ユーザ' : 'Unknown'} 
+            #{log.discarded_at.present? ? 'を削除しました' : (log.created_user_id.present? ? 'を作成しました' : '')}" %>
+          </td>
           <%# 組織名とユーザ名がどちらも name カラムのため log.name としているので要修正 %>
           <td><%= log.name %></td>
           <td><%= l log.discarded_at, format: :default %></td>

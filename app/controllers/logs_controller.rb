@@ -13,21 +13,38 @@ class LogsController < ApplicationController
     # case でログのタイプ毎に分岐
     @logs = case params[:log_type]
             when 'organization'
-              fetch_logs(Organization)
+              # fetch_logs_with_created_user_id(Organization) +
+              # fetch_logs_with_discarded_at(Organization) +
+              # fetch_logs_with_created_at(Organization)
             when 'user'
-              fetch_logs(User)
+              fetch_logs_with_created_user_id(User) +
+              fetch_logs_with_discarded_at(User) +
+              fetch_logs_with_created_at(User)
             else
               all_logs
             end
   end
 
   def all_logs
-    Organization.unscope(:where).where.not(discarded_at: nil) +
-      User.unscope(:where).where.not(discarded_at: nil)
+    # fetch_logs_with_created_user_id(Organization) +
+    # fetch_logs_with_discarded_at(Organization) +
+    # fetch_logs_with_created_at(Organization)
+    fetch_logs_with_created_user_id(User) +
+    fetch_logs_with_discarded_at(User) +
+    fetch_logs_with_created_at(User)
   end
 
   # モデルに記述したデフォルトスコープを無視して discarded_at が nil でないものを取得
-  def fetch_logs(model)
+  def fetch_logs_with_discarded_at(model)
     model.unscope(:where).where.not(discarded_at: nil)
   end
+
+  def fetch_logs_with_created_user_id(model)
+    model.where.not(created_user_id: nil)
+  end
+
+  def fetch_logs_with_created_at(model)
+    model.where.not(created_at: nil)
+  end
+
 end
