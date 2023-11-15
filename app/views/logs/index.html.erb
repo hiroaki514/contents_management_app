@@ -1,17 +1,19 @@
-<h3>操作ログ</h3>
+<h3>ログ</h3>
 
 <table border='1' class="table overflow-scroll">
   <thead>
     <tr>
-      <th>組織名</th>
+      <th>操作</th>
+      <th>対象名</th>
       <th>削除日時</th>
     </tr>
   </thead>
   <tbody>
-    <% @organizations.find_each do |organization| %>
+    <% @logs.each do |log| %>
       <tr>
-        <td><%= organization.name %></td>
-        <td><%= l organization.discarded_at, format: :default %></td>
+        <td><%= "#{log.is_a?(Organization) ? '組織' : log.is_a?(User) ? 'ユーザ' : 'Unknown'} を削除しました" %></td>
+        <td><%= log.name %></td>
+        <td><%= l log.discarded_at, format: :default %></td>
       </tr>
     <% end %>
   </tbody>
