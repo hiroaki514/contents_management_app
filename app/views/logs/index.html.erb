@@ -14,6 +14,7 @@
     </tr>
   </thead>
   <tbody>
+    <%# 組織名とユーザ名がどちらも name カラムのため log.name としている %>
     <% @logs.each do |log| %>
       <% if params[:log_type].blank? || params[:log_type] == 'all' || (params[:log_type] == 'organization' && log.is_a?(Organization)) || (params[:log_type] == 'user' && log.is_a?(User)) %>
         <tr>
