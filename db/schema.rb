@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_231_002_130_044) do
+ActiveRecord::Schema[7.0].define(version: 20_231_004_212_443) do
   create_table 'active_storage_attachments', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -69,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 20_231_002_130_044) do
     t.integer 'failed_attempts', default: 0, null: false
     t.string 'unlock_token'
     t.datetime 'locked_at', precision: nil
+    t.datetime 'discarded_at', comment: '削除日時'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.bigint 'organization_id', null: false

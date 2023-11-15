@@ -1,3 +1,7 @@
+<% content_for :member_specific_styles do %>
+  <%= stylesheet_link_tag 'member' %>
+<% end %>
+
 <h3>ユーザ一覧</h3>
 
 <table border='1' class="table">
@@ -8,17 +12,21 @@
       <th>権限</th>
       <th>所属組織</th>
       <th></th>
+      <th></th>
+
     </tr>
   </thead>
   <tbody>
     <% @users.find_each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.role_i18n %></td>
-        <td><%= user.organization.name %></td>
-        <td><%= link_to "編集", edit_member_path(user) %></td>
-      </tr>
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role_i18n %></td>
+  <td><%= user.organization.name %></td>
+  <td><%= link_to "編集", edit_member_path(user) %></td>
+  <td><%= button_to "削除", member_path(user), method: :delete, data: { turbo_confirm: "本当に削除しますか？"}, class: 'btn btn-link delete_member_button' %></td>
+</tr>
+
     <% end %>
   </tbody>
 </table>
