@@ -17,13 +17,14 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
-    if @organization.valid?
-      @organization.save
-      redirect_to organizations_path
+
+    if @organization.save
+      @organization.update(created_user_id: current_user.id)
       flash[:success] = '組織を登録しました'
+      redirect_to organizations_path
     else
-      render :new
       flash.now[:alert] = '組織の登録に失敗しました'
+      render :new
     end
   end
 
