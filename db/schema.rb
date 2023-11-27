@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_27_081840) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_27_085106) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_27_081840) do
   create_table "organizations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false, comment: "組織名"
     t.integer "created_user_id", comment: "作成者"
+    t.integer "updated_user_id", comment: "更新者"
     t.datetime "created_at", null: false
     t.datetime "discarded_at", comment: "削除日時"
     t.datetime "updated_at", null: false
@@ -67,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_27_081840) do
     t.string "unlock_token"
     t.datetime "locked_at", precision: nil
     t.integer "created_user_id", comment: "作成者"
+    t.integer "updated_user_id", comment: "更新者"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "discarded_at", comment: "削除日時"

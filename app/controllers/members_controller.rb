@@ -32,13 +32,13 @@ class MembersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to members_path
+    if @user.update(user_params.merge(updated_user_id: current_user.id))
       flash[:success] = 'ユーザを更新しました'
+      redirect_to members_path
     else
       render :edit
     end
-  end
+  end 
 
   def destroy
     if @user.update(discarded_at: Time.zone.now)

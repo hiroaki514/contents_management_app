@@ -29,9 +29,9 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    if @organization.update(organization_params)
-      redirect_to organizations_path
+    if @organization.update(organization_params.merge(updated_user_id: current_user.id))
       flash[:success] = '組織名を更新しました'
+      redirect_to organizations_path
     else
       render :edit
     end
