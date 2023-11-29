@@ -2,10 +2,7 @@
 
 class LogsController < ApplicationController
   before_action :fetch_log_types, only: %i[index]
-  def index
-    # 表示用に @logs 内のデータをソートする
-    @logs = @logs.sort_by(&:discarded_at).reverse
-  end
+  def index; end
 
   private
 
