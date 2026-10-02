@@ -4,7 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   before do
-    create(:user, name: '田中太郎', email: 'tanaka@example.com', role: 'master')
+    organization = create(:organization, name: '既存組織')
+    create(:user, name: '瀬戸博章', email: 'hiroaki5141616@me.com', password: 'password123',
+                  role: 'master', organization:)
+    create(:user, name: '穂夏太郎', email: 'hoge@example.com', password: 'password123',
+                  role: 'admin', organization:)
+    create(:user, name: '穂夏次郎', email: 'hoge2@example.com', password: 'password123',
+                  role: 'general', organization:)
   end
 
   describe 'ログイン' do
@@ -86,7 +92,8 @@ RSpec.describe 'Users', type: :system do
           end
 
           it 'ユーザが表示されること' do
-            expect(page).to have_content('穂夏太郎')
+            click_on 'ユーザ一覧'
+            expect(page).to have_content('瀬戸博章')
             expect(page).to have_content('hiroaki5141616@me.com')
             expect(page).to have_content('マスター')
           end
@@ -144,9 +151,11 @@ RSpec.describe 'Users', type: :system do
           end
 
           it 'ユーザが表示されること' do
-            expect(page).to have_content('穂夏次郎')
+            click_on 'ユーザ一覧'
+            expect(page).to have_content('穂夏太郎')
             expect(page).to have_content('hoge@example.com')
             expect(page).to have_content('管理者')
+            expect(page).not_to have_content('hiroaki5141616@me.com')
           end
         end
       end
