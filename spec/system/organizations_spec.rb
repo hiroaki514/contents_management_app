@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Organizations', type: :system do
+  let!(:master_user) do
+    create(:user, name: '管理者', email: 'hiroaki5141616@me.com', password: 'password123',
+                  role: 'master', organization: create(:organization, name: '既存組織'))
+  end
+
   before do
     visit new_user_session_path
     fill_in 'user[email]', with: 'hiroaki5141616@me.com'
@@ -105,7 +110,8 @@ RSpec.describe 'Organizations', type: :system do
 
     it '組織が論理削除されること' do
       click_on '削除'
-      expect(page).not_to have_content('組織01')
+      expect(page).not_to have_content('既存組織')
+      expect(Organization.unscoped.find(master_user.organization_id).discarded_at).not_to be_nil
     end
   end
 end
